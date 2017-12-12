@@ -7,9 +7,16 @@ import Html exposing (..)
 
 import Types exposing (..)
 import Routes.Home exposing (..)
-import Routes.PageOne exposing (..)
-import Routes.PageTwo exposing (..)
-import Routes.Navbar exposing (..)
+import Routes.NewDatePage exposing (..)
+import Routes.NewContactPage exposing (..)
+import Routes.NewNotesPage exposing (..)
+import Routes.NewRecommendPage exposing (..)
+import Routes.NewSharePage exposing (..)
+import Routes.NewFollowUpPage exposing (..)
+import Routes.NewAddToDBPage exposing (..)
+import Routes.NewEndPage exposing (..)
+import Routes.NotFoundPage exposing (..)
+import Components.Navbar exposing (..)
 
 
 view : Model -> Html Msg
@@ -20,11 +27,32 @@ view model =
                 HomeRoute ->
                     home model
 
-                PageOneRoute ->
-                    pageOne model
+                NewDateRoute ->
+                    newDatePage model
 
-                PageTwoRoute ->
-                    pageTwo model
+                NewContactRoute ->
+                    newContactPage model
+
+                NewNotesRoute ->
+                    newNotesPage model
+
+                NewRecommendRoute ->
+                    newRecommendPage model
+
+                NewShareRoute ->
+                    newSharePage model
+
+                NewFollowUpRoute ->
+                    newFollowUpPage model
+
+                NewAddToDBRoute ->
+                    newAddToDBPage model
+
+                NewEndRoute ->
+                    newEndPage model
+
+                NotFoundRoute ->
+                    notFoundPage model
     in
         div []
             [ navbar model

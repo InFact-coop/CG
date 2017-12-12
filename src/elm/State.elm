@@ -20,17 +20,35 @@ initModel =
 getRoute : String -> Route
 getRoute hash =
     case hash of
+        "" ->
+            HomeRoute
+
         "#home" ->
             HomeRoute
 
-        "#pageone" ->
-            PageOneRoute
+        "#newDate" ->
+            NewDateRoute
 
-        "#pagetwo" ->
-            PageTwoRoute
+        "#newNotes" ->
+            NewNotesRoute
+
+        "#newRecommend" ->
+            NewRecommendRoute
+
+        "#newShare" ->
+            NewShareRoute
+
+        "#newFollowUp" ->
+            NewFollowUpRoute
+
+        "#newAddToDB" ->
+            NewAddToDBRoute
+
+        "#newEnd" ->
+            NewEndRoute
 
         _ ->
-            HomeRoute
+            NotFoundRoute
 
 
 update : Msg -> Model -> ( Model, Cmd Msg )
