@@ -1,4 +1,4 @@
-module Routes.Navbar exposing (..)
+module Components.Navbar exposing (..)
 
 import Html exposing (..)
 import Html.Attributes exposing (..)
@@ -18,4 +18,4 @@ navbarLink ( linkStr, name ) =
 
 navbarContent : List (Html Msg)
 navbarContent =
-    List.map navbarLink [ ( "home", "Home" ), ( "pageone", "Page One" ), ( "pagetwo", "Page Two" ) ]
+    List.map navbarLink [ ( "home", "Home" ), ( "newDate", "New Date" ), ( "newContact", "Contacts" ) ]
