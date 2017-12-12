@@ -68,3 +68,4 @@ type Tags
 
 type Msg
     = UrlChange Navigation.Location
+    | ChangeModelInput String String

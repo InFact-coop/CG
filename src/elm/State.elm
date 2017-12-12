@@ -75,3 +75,6 @@ update msg model =
     case msg of
         UrlChange location ->
             ( { model | route = (getRoute location.hash) }, Cmd.none )
+
+        ChangeModelInput modelPath newInput ->
+            ( { model | modelPath = newInput }, Cmd.none )
