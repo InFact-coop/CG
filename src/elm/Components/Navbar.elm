@@ -11,11 +11,21 @@ navbar model =
         navbarContent
 
 
-navbarLink : ( String, String ) -> Html Msg
-navbarLink ( linkStr, name ) =
-    li [ class "list dib ma3" ] [ a [ class "link dim white b", href ("/#" ++ linkStr) ] [ text name ] ]
+navbarLink : String -> Html Msg
+navbarLink linkStr =
+    li [ class "list dib ma3" ] [ a [ class "link dim white b", href ("/#" ++ linkStr) ] [ text linkStr ] ]
 
 
 navbarContent : List (Html Msg)
 navbarContent =
-    List.map navbarLink [ ( "home", "Home" ), ( "newDate", "New Date" ), ( "newContact", "Contacts" ) ]
+    List.map navbarLink
+        [ "home"
+        , "newOrOldContact"
+        , "newCreateContact"
+        , "newDate"
+        , "newNotes"
+        , "newShare"
+        , "newFollowUp"
+        , "newAddToDB"
+        , "newEnd"
+        ]

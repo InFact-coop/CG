@@ -8,7 +8,8 @@ import Html exposing (..)
 import Types exposing (..)
 import Routes.Home exposing (..)
 import Routes.NewDatePage exposing (..)
-import Routes.NewContactPage exposing (..)
+import Routes.NewCreateContactPage exposing (..)
+import Routes.NewOrOldContactPage exposing (..)
 import Routes.NewNotesPage exposing (..)
 import Routes.NewRecommendPage exposing (..)
 import Routes.NewSharePage exposing (..)
@@ -30,8 +31,11 @@ view model =
                 NewDateRoute ->
                     newDatePage model
 
-                NewContactRoute ->
-                    newContactPage model
+                NewOrOldContactRoute ->
+                    newOrOldContactPage model
+
+                NewCreateContactRoute ->
+                    newCreateContactPage model
 
                 NewNotesRoute ->
                     newNotesPage model

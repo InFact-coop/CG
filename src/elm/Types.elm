@@ -10,7 +10,6 @@ import Navigation
 type Route
     = HomeRoute
     | NewDateRoute
-    | NewContactRoute
     | NewNotesRoute
     | NewRecommendRoute
     | NewShareRoute
@@ -18,28 +17,41 @@ type Route
     | NewAddToDBRoute
     | NewEndRoute
     | NotFoundRoute
+    | NewOrOldContactRoute
+    | NewCreateContactRoute
 
 
 type alias Model =
     { route : Route
-    , currentContacts : List Contact
+    , currentContact : Maybe Contact
+    , recordedContacts : List Contact
+    , recordedConnections : List Connection
     }
 
 
 type alias Connection =
-    { date : Date
+    { connectionId : Int
+    , date : Date
     , notes : List String
     , tags : Tags
-    , recommendations : Maybe List Contact
+    , recommendations : Maybe Recommendation
     , followUpDate : Date
     }
 
 
 type alias Contact =
-    { name : String
+    { contactId : Int
+    , name : String
+    , organisation : String
     , email : String
     , phone : Int
-    , connections : List Contection
+    , connections : List Int
+    }
+
+
+type alias Recommendation =
+    { name : String
+    , organisation : String
     }
 
 
@@ -54,5 +66,4 @@ type Tags
 
 
 type Msg
-    = Change String
-    | UrlChange Navigation.Location
+    = UrlChange Navigation.Location

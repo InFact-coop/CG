@@ -9,7 +9,9 @@ import Types exposing (..)
 initModel : Model
 initModel =
     { route = HomeRoute
-    , userInput = ""
+    , currentContact = Nothing
+    , recordedContacts = []
+    , recordedConnections = []
     }
 
 
@@ -25,6 +27,12 @@ getRoute hash =
 
         "#home" ->
             HomeRoute
+
+        "#newOrOldContact" ->
+            NewOrOldContactRoute
+
+        "#newCreateContact" ->
+            NewCreateContactRoute
 
         "#newDate" ->
             NewDateRoute
@@ -54,8 +62,5 @@ getRoute hash =
 update : Msg -> Model -> ( Model, Cmd Msg )
 update msg model =
     case msg of
-        Change newInput ->
-            ( { model | userInput = newInput }, Cmd.none )
-
         UrlChange location ->
             ( { model | route = (getRoute location.hash) }, Cmd.none )
