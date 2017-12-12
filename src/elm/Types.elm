@@ -22,20 +22,24 @@ type Route
 
 type alias Model =
     { route : Route
-    , userInput : String
+    , currentContacts : List Contact
     }
 
 
 type alias Connection =
-    { connectionId : Int
-    , date : Date
-    , name : String
-    , email : String
-    , phone : Int
+    { date : Date
     , notes : List String
     , tags : Tags
-    , recommendations : List Recommendations
+    , recommendations : Maybe List Contact
     , followUpDate : Date
+    }
+
+
+type alias Contact =
+    { name : String
+    , email : String
+    , phone : Int
+    , connections : List Contection
     }
 
 
@@ -43,12 +47,6 @@ type Tags
     = Artist
     | CGmember
     | Event
-
-
-type alias Recommendations =
-    { name : String
-    , organisation : String
-    }
 
 
 
