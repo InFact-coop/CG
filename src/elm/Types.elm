@@ -2,6 +2,7 @@ module Types exposing (..)
 
 import Date exposing (..)
 import Navigation
+import Dict
 
 
 -- Model
@@ -27,6 +28,8 @@ type alias Model =
     , currentConnection : Maybe Connection
     , recordedContacts : List Contact
     , recordedConnections : List Connection
+    , fieldInputs : Dict.Dict String String
+    , contactInput : String
     }
 
 
@@ -69,3 +72,4 @@ type Tags
 type Msg
     = UrlChange Navigation.Location
     | ChangeModelInput String String
+    | SetContact String

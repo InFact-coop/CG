@@ -9,6 +9,6 @@ import Types exposing (..)
 newFollowUpPage : Model -> Html Msg
 newFollowUpPage model =
     div [ class "w-60-ns center" ]
-        [ h1 [ class "tc f1" ] [ text "newFollowUpRoute" ]
+        [ h1 [ class "tc f1" ] [ text "Set a reminder to check on this later" ]
         , p [ class "f3 w60 mh1 tc" ] [ text "newFollowUpRoute" ]
         ]

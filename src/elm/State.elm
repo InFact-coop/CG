@@ -1,6 +1,7 @@
 module State exposing (..)
 
 import Types exposing (..)
+import Dict exposing (..)
 
 
 -- MODEL
@@ -13,6 +14,8 @@ initModel =
     , currentConnection = Nothing
     , recordedContacts = initRecordedContacts
     , recordedConnections = []
+    , fieldInputs = Dict.empty
+    , contactInput = ""
     }
 
 
@@ -76,5 +79,16 @@ update msg model =
         UrlChange location ->
             ( { model | route = (getRoute location.hash) }, Cmd.none )
 
-        ChangeModelInput modelPath newInput ->
-            ( { model | modelPath = newInput }, Cmd.none )
+        ChangeModelInput field newInput ->
+            let
+                newFieldInputs =
+                    Dict.insert field newInput model.fieldInputs
+            in
+                ( { model | fieldInputs = newFieldInputs }, Cmd.none )
+
+        SetContact input ->
+            ( { model | contactInput = input }, Cmd.none )
+
+
+
+-- ( model, Cmd.none )
