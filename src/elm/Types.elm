@@ -24,6 +24,7 @@ type Route
 type alias Model =
     { route : Route
     , currentContact : Maybe Contact
+    , currentConnection : Maybe Connection
     , recordedContacts : List Contact
     , recordedConnections : List Connection
     }

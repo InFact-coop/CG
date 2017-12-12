@@ -10,9 +10,18 @@ initModel : Model
 initModel =
     { route = HomeRoute
     , currentContact = Nothing
-    , recordedContacts = []
+    , currentConnection = Nothing
+    , recordedContacts = initRecordedContacts
     , recordedConnections = []
     }
+
+
+initRecordedContacts : List Contact
+initRecordedContacts =
+    [ Contact 1 "Alexa Vega" "PHS Limited" "alexavega@gmail.com" 7598772611 [ 1 ]
+    , Contact 2 "Daryl Sabara" "Cortez Ltd" "darylsabara@cortez.com" 7532172611 [ 2 ]
+    , Contact 3 "Antonio Banderas" "Cargo S.L." "banderas@cargo.com" 7598772987 [ 1 ]
+    ]
 
 
 
