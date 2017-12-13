@@ -73,3 +73,4 @@ type Msg
     = UrlChange Navigation.Location
     | SetContactName String
     | SelectInteractionItem Interaction
+    | GoBack

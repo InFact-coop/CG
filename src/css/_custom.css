@@ -12,3 +12,9 @@ body {
 button {
   font-family: var(--sans-serif);
 }
+
+.background-back {
+  background-image: url(./assets/svg_icons/back.svg);
+  background-repeat: no-repeat;
+  background-position: center; 
+}

@@ -86,3 +86,6 @@ update msg model =
                     Navigation.newUrl "#previousDetail"
             in
                 ( { model | liveInteraction = currentInteraction }, command )
+
+        GoBack ->
+            ( model, Navigation.back 1 )

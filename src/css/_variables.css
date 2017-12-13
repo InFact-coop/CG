@@ -10,7 +10,7 @@
 
 :root {
 
-  --sans-serif: 'roboto mono', 'helvetica neue', helvetica, arial;
+  --sans-serif: 'lato', 'helvetica neue', helvetica, arial;
   --serif: georgia, serif;
   --handwriting: Caveat;
   --code: consolas, monaco, monospace;
@@ -147,7 +147,7 @@
   --light-green:  #C7FFDF;
   --navy:  #001b44;
   --dark-blue:  #2D6B8E;
-  --blue:  #357edd;
+  --blue:  #4B7692;
   --light-blue:  #96ccff;
   --lightest-blue:  #cdecff;
   --washed-blue:  #f6fffe;
