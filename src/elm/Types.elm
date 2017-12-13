@@ -43,7 +43,14 @@ type alias Interaction =
     , tags : List Tags
     , recommendations : List Recommendation
     , followUpDate : Maybe Date
+    , currentMember : CurrentMemberOptions
     }
+
+
+type CurrentMemberOptions
+    = CurrentMemberNotSet
+    | CurrentMemberYes
+    | CurrentMemberNo
 
 
 type alias Recommendation =
@@ -75,3 +82,4 @@ type Msg
     | SetContactPhone String
     | SetContactOrganisation String
     | GoBack
+    | SetCurrentContact CurrentMemberOptions

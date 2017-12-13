@@ -10,7 +10,7 @@ import Navigation
 initModel : Model
 initModel =
     { route = HomeRoute
-    , currentInteraction = Interaction "" "" "" "" (Notes "" "") [] [] Nothing
+    , currentInteraction = Interaction "" "" "" "" (Notes "" "") [] [] Nothing CurrentMemberNotSet
     , recordedInteractions = []
     , notesPage = Choose
     , isRecording = False
@@ -108,3 +108,28 @@ update msg model =
 
         GoBack ->
             ( model, Navigation.back 1 )
+
+        SetCurrentContact yesOrNo ->
+            case yesOrNo of
+                CurrentMemberYes ->
+                    let
+                        interaction =
+                            model.currentInteraction
+
+                        newInteraction =
+                            { interaction | currentMember = CurrentMemberYes }
+                    in
+                        ( { model | currentInteraction = newInteraction }, Cmd.none )
+
+                CurrentMemberNo ->
+                    let
+                        interaction =
+                            model.currentInteraction
+
+                        newInteraction =
+                            { interaction | currentMember = CurrentMemberNo }
+                    in
+                        ( { model | currentInteraction = newInteraction }, Cmd.none )
+
+                _ ->
+                    ( model, Cmd.none )
