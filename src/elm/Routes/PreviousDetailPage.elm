@@ -21,11 +21,27 @@ previousDetailPage model =
         interactionAudioHtml =
             case model.liveInteraction.notes.audioUrl of
                 audioUrl ->
-                    div [ class "flex v-mid bb bw2 b--black-10" ] [ img [ class "ma3 br-100", src "./assets/svg's_icons/hear_rec.svg" ] [], audio [ class "mv3 pa3", controls True, id "audio", src audioUrl ] [] ]
+                    audio [ class " mv3 pa3", controls True, id "audio", src audioUrl ] []
     in
         div [ class "w-60-ns center brand tc" ]
-            [ div [ class "w-100 tl pa2 flex bg-near-white bb b--black-10 v-mid" ] [ img [ class "pa3 h2", src "./assets/svg's_icons/see_conn.svg" ] [], h2 [ class "pl3" ] [ text model.liveInteraction.name ] ]
-            , div [ class "w-100 tl ph4 pv0 ma0 flex b justify-between bg-near-white bb f6" ] [ p [ class "ph2 pv0" ] [ text "01/03/2018" ], p [ class "ph2 pv0" ] [] ]
-            , interactionTextHtml
+            [ div [ class "w-100 tl pa2 bg-near-white bb b--black-10 v-mid" ]
+                [ img [ class "pa3 h2", src "./assets/png's/icon.png" ] []
+                , h2 [ class "pl3" ] [ text model.liveInteraction.name ]
+                ]
+            , div [ class "interactionDetailsImage" ]
+                [ img [ class "ma3 br-100", src "./assets/svg's_icons/hear_rec.svg" ] [ interactionAudioHtml ]
+                , img [] []
+                , img [] []
+                , img [] []
+                ]
+            , div [ class "w-100 bb" ]
+                [ h3 [] [ text "Date and time" ]
+                , p [ class "ph2 pv0" ] [ text "Met on Aug 3rd, 2017 at 6pm" ]
+                , p [ class "ph2 pv0" ] [ text "at New Town Hall, GL8 9JDF" ]
+                ]
             , interactionAudioHtml
+            , div []
+                [ h3 [] [ text "Notes" ]
+                , interactionTextHtml
+                ]
             ]
