@@ -35,7 +35,8 @@ type NoteState
 
 
 type alias Interaction =
-    { name : String
+    { interactionDate : Maybe Date
+    , name : String
     , organisation : String
     , email : String
     , phone : String
@@ -71,3 +72,5 @@ type Tags
 type Msg
     = UrlChange Navigation.Location
     | SetContactName String
+    | RequestDate
+    | ReceiveDate Date

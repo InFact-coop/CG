@@ -1,7 +1,8 @@
 module State exposing (..)
 
-import Dict exposing (..)
 import Types exposing (..)
+import Date
+import Task
 
 
 -- MODEL
@@ -10,7 +11,7 @@ import Types exposing (..)
 initModel : Model
 initModel =
     { route = HomeRoute
-    , currentInteraction = Interaction "" "" "" "" (Notes "" "") [] [] Nothing
+    , currentInteraction = Interaction Nothing "" "" "" "" (Notes "" "") [] [] Nothing
     , recordedInteractions = []
     , notesPage = Choose
     , isRecording = False
@@ -74,4 +75,17 @@ update msg model =
                 newInteraction =
                     { interaction | name = input }
             in
-            ( { model | currentInteraction = newInteraction }, Cmd.none )
+                ( { model | currentInteraction = newInteraction }, Cmd.none )
+
+        RequestDate ->
+            ( model, Task.perform ReceiveDate Date.now )
+
+        ReceiveDate date ->
+            let
+                interaction =
+                    model.currentInteraction
+
+                newInteraction =
+                    { interaction | interactionDate = Just date }
+            in
+                ( { model | currentInteraction = newInteraction }, Cmd.none )
