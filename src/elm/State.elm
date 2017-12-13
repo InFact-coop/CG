@@ -16,6 +16,7 @@ initModel =
     , notesPage = Choose
     , isRecording = False
     , liveInteraction = Interaction "" "" "" "" (Notes "" "") [] [] Nothing
+    , searchInput = ""
     }
 
 
@@ -89,3 +90,6 @@ update msg model =
 
         GoBack ->
             ( model, Navigation.back 1 )
+
+        SetSearchInput input ->
+            ( { model | searchInput = input }, Cmd.none )

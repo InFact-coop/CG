@@ -26,6 +26,7 @@ type alias Model =
     , notesPage : NoteState
     , isRecording : Bool
     , liveInteraction : Interaction
+    , searchInput : String
     }
 
 
@@ -65,6 +66,19 @@ type Tags
     | Event
 
 
+tagToString : Tags -> String
+tagToString tags =
+    case tags of
+        Artist ->
+            "Artist"
+
+        CGmember ->
+            "CGmember"
+
+        Event ->
+            "Event"
+
+
 
 -- Update
 
@@ -74,3 +88,4 @@ type Msg
     | SetContactName String
     | SelectInteractionItem Interaction
     | GoBack
+    | SetSearchInput String
