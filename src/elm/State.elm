@@ -1,7 +1,7 @@
 module State exposing (..)
 
-import Dict exposing (..)
 import Types exposing (..)
+import Navigation
 
 
 -- MODEL
@@ -74,4 +74,7 @@ update msg model =
                 newInteraction =
                     { interaction | name = input }
             in
-            ( { model | currentInteraction = newInteraction }, Cmd.none )
+                ( { model | currentInteraction = newInteraction }, Cmd.none )
+
+        GoBack ->
+            ( model, Navigation.back 1 )
