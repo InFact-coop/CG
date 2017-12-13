@@ -35,7 +35,8 @@ type NoteState
 
 
 type alias Interaction =
-    { name : String
+    { interactionDate : Maybe Date
+    , name : String
     , organisation : String
     , email : String
     , phone : String
@@ -73,3 +74,5 @@ type Msg
     | SetContactName String
     | ChangeNotes NoteState
     | UpdateTextNote String
+    | RequestDate
+    | ReceiveDate Date
