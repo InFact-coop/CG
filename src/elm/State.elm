@@ -1,6 +1,7 @@
 module State exposing (..)
 
 import Date
+import DatePicker
 import Task
 import Types exposing (..)
 
@@ -8,14 +9,21 @@ import Types exposing (..)
 -- MODEL
 
 
-initModel : Model
-initModel =
-    { route = HomeRoute
-    , currentInteraction = Interaction Nothing "" "" "" "" (Notes "" "") [] [] Nothing
-    , recordedInteractions = []
-    , notesPage = Choose
-    , isRecording = False
-    }
+init : ( Model, Cmd Msg )
+init =
+    let
+        ( datePicker, datePickerCmd ) =
+            DatePicker.init
+    in
+    ( { route = NewNotesRoute
+      , currentInteraction = Interaction Nothing "" "" "" "" (Notes "" "") [] [] Nothing
+      , recordedInteractions = []
+      , notesPage = Choose
+      , isRecording = False
+      , datePicker = datePicker
+      }
+    , Cmd.batch [ Task.perform ReceiveDate Date.now, Cmd.map SetDatePicker datePickerCmd ]
+    )
 
 
 
@@ -108,3 +116,28 @@ update msg model =
                     { interaction | interactionDate = Just date }
             in
             ( { model | currentInteraction = newInteraction }, Cmd.none )
+
+        SetDatePicker msg ->
+            let
+                ( newDatePicker, datePickerCmd, dateEvent ) =
+                    DatePicker.update DatePicker.defaultSettings msg model.datePicker
+
+                date =
+                    case dateEvent of
+                        DatePicker.NoChange ->
+                            model.currentInteraction.interactionDate
+
+                        DatePicker.Changed newDate ->
+                            newDate
+
+                interaction =
+                    model.currentInteraction
+
+                newInteraction =
+                    { interaction | interactionDate = date }
+            in
+            { model
+                | currentInteraction = newInteraction
+                , datePicker = newDatePicker
+            }
+                ! [ Cmd.map SetDatePicker datePickerCmd ]

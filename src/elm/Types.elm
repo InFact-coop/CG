@@ -1,6 +1,7 @@
 module Types exposing (..)
 
 import Date exposing (..)
+import DatePicker
 import Navigation
 
 
@@ -25,6 +26,7 @@ type alias Model =
     , recordedInteractions : List Interaction
     , notesPage : NoteState
     , isRecording : Bool
+    , datePicker : DatePicker.DatePicker
     }
 
 
@@ -76,3 +78,4 @@ type Msg
     | UpdateTextNote String
     | RequestDate
     | ReceiveDate Date
+    | SetDatePicker DatePicker.Msg

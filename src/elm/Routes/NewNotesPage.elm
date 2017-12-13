@@ -1,5 +1,6 @@
 module Routes.NewNotesPage exposing (..)
 
+import DatePicker
 import Html exposing (..)
 import Html.Attributes exposing (..)
 import Html.Events exposing (..)
@@ -22,6 +23,15 @@ newNotesPage model =
     in
     div [ class "brand w-60-ns center" ]
         [ p [ class "tc f3 pa4" ] [ text "What happened?" ]
+        , div [ class "tc" ]
+            [ div [ class "dib ba b-black " ]
+                [ DatePicker.view
+                    model.currentInteraction.interactionDate
+                    DatePicker.defaultSettings
+                    model.datePicker
+                    |> Html.map SetDatePicker
+                ]
+            ]
         , viewChoice
         ]
 
