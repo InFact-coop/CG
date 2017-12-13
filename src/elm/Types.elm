@@ -80,6 +80,8 @@ type Msg
     | ReceiveDate Date
     | SetDatePicker DatePicker.Msg
     | GoBack
-    | StartAudio
-    | StopAudio
+    | StartRecording
+    | StopRecording
     | RecieveAudio String
+    | PlayAudio Bool
+    | ReRecord

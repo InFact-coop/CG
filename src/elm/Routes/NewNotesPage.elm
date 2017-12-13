@@ -62,16 +62,24 @@ audioView model =
 
                 _ ->
                     ( model.currentInteraction.notes.audioUrl, True )
+
+        audioHtml =
+            if exists then
+                div []
+                    [ button [ id "play-button", class buttonClass, onClick <| PlayAudio True ] [ img [ src "./assets/svg_icons/hear_rec.svg" ] [] ]
+                    , button [ class buttonClass, onClick ReRecord ] [ img [ src "./assets/png's/redo.png", class "h2 pb2" ] [] ]
+                    ]
+            else
+                div []
+                    [ button [ onClick StartRecording, class buttonClass, disabled model.isRecording ] [ img [ src "./assets/svg_icons/REC_BTN_start.svg" ] [] ]
+                    , button [ onClick StopRecording, class buttonClass, disabled <| not model.isRecording ] [ img [ src "./assets/svg_icons/REC_BTN_stop.svg" ] [] ]
+                    ]
     in
     div []
-        [ div [ class "tc" ] [ audio [ controls True, class "", id "audio", src audioSrc ] [] ]
-        , div []
-            [ button [ onClick StartAudio, class "" ] [ text "Begin recording" ]
-            , button [ onClick StopAudio, class "" ] [ text "Finish recording" ]
-            ]
-        , section [ class "flex justify-center pa2" ]
-            [ button [ onClick <| ChangeNotes Audio, class "tc ma2 link dim dib f4" ]
-                [ img [ src "./assets/svg_icons/record.svg" ] [] ]
+        [ div [ class "tc" ]
+            [ audio [ controls False, class "", id "audio", src audioSrc ] []
+            , img [ class "vh-25 mt4 mb3 pa3 br-100", classList [ ( "flash", model.isRecording ) ], src "./assets/svg_icons/RECORDING.svg" ] []
+            , audioHtml
             ]
         , section [ class "pa4 flex justify-center" ]
             [ button [ onClick <| ChangeNotes Choose, class "tc ma2 link dim dib f4" ]
@@ -80,39 +88,8 @@ audioView model =
         ]
 
 
-
---audioMessagePage : Model -> Html Msg
---audioMessagePage model =
---    let
---        ( audioSrc, exists ) =
---            case model.currentInteraction.notes.audioUrl of
---                "" ->
---                    ( "", False )
---                _ ->
---                    ( model.currentInteraction.notes.audioUrl, True )
---        audioHtml =
---            if exists then
---                div []
---                    [ audio [ controls False, id "audio", src audioSrc ] []
---                    , button [ id "play-button", class buttonClass1, onClick <| PlayAudio True ] [ text "Listen Back" ]
---                    , button [ class buttonClass2, onClick ReRecord ] [ text "Record again" ]
---                    , a [ href "#stopVisitPage" ] [ button [ class "dim b pointer w7 h8 br1 f4 ma2  bg--bp white" ] [ text "Submit" ] ]
---                    ]
---            else
---                div []
---                    [ button [ onClick StartAudio, class buttonClass1, disabled model.isRecordingAudio ] [ text "Begin recording" ]
---                    , button [ onClick StopAudio, class buttonClass2, disabled <| not model.isRecordingAudio ] [ text "Finish recording" ]
---                    ]
---    in
---    div [ class "w-60-ns center tc" ]
---        [ div [ class "w-100 tl ma2 pa2" ] [ img [ class "h3", onClick GoBack, src "./assets/back_btn.svg" ] [] ]
---        , img [ class "vh-25 mt4 mb3 pa3 br-100", classList [ ( "flash", model.isRecordingAudio ) ], src "./assets/mic.svg" ] []
---        , audioHtml
---        ]
---buttonClass1 =
---    "dim b pointer b-orange br1 w7 h8 f4 ma2 bg-white brand"
---buttonClass2 =
---    "dim b pointer b-pink br1 w7 h8 f4 ma2 bg-white brand-pink"
+buttonClass =
+    "dim b pointer w7 h3 f4 ma2"
 
 
 textView : Model -> Html Msg

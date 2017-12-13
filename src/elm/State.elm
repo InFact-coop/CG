@@ -147,11 +147,11 @@ update msg model =
         GoBack ->
             ( model, Navigation.back 1 )
 
-        StartAudio ->
-            ( model, recordStart () )
+        StartRecording ->
+            ( { model | isRecording = True }, recordStart () )
 
-        StopAudio ->
-            ( model, recordStop () )
+        StopRecording ->
+            ( { model | isRecording = False }, recordStop () )
 
         RecieveAudio audioUrl ->
             let
@@ -163,6 +163,25 @@ update msg model =
 
                 newNotes =
                     { notes | audioUrl = audioUrl }
+
+                newInteraction =
+                    { interaction | notes = newNotes }
+            in
+            ( { model | currentInteraction = newInteraction }, Cmd.none )
+
+        PlayAudio whichever ->
+            ( model, playStart whichever )
+
+        ReRecord ->
+            let
+                interaction =
+                    model.currentInteraction
+
+                notes =
+                    model.currentInteraction.notes
+
+                newNotes =
+                    { notes | audioUrl = "" }
 
                 newInteraction =
                     { interaction | notes = newNotes }

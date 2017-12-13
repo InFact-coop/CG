@@ -154,3 +154,13 @@ button {
   background-repeat: no-repeat;
   background-position: center;
 }
+
+.flash {
+  -webkit-animation: flash 1.5s infinite;
+}
+
+@-webkit-keyframes flash {
+  50% {
+    background-color: red;
+  }
+}
