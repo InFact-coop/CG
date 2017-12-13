@@ -2,7 +2,6 @@ module Types exposing (..)
 
 import Date exposing (..)
 import Navigation
-import Dict
 
 
 -- Model
@@ -10,52 +9,52 @@ import Dict
 
 type Route
     = HomeRoute
-    | NewDateRoute
-    | NewNotesRoute
-    | NewRecommendRoute
-    | NewShareRoute
-    | NewFollowUpRoute
-    | NewAddToDBRoute
-    | NewEndRoute
+    | NewContactDetailsRoute
+    | NewNotesRoute --| with date
+    | NewRecommendRoute --| with tags
+    | NewShareRoute --| with follow up date
+    | NewThankYouRoute
+    | PreviousInteractionsOverviewRoute
+    | PreviousInteractionsDetailRoute
     | NotFoundRoute
-    | NewOrOldContactRoute
-    | NewCreateContactRoute
 
 
 type alias Model =
     { route : Route
-    , currentContact : Maybe Contact
-    , currentConnection : Maybe Connection
-    , recordedContacts : List Contact
-    , recordedConnections : List Connection
-    , fieldInputs : Dict.Dict String String
-    , contactInput : String
+    , currentInteraction : Interaction
+    , recordedInteractions : List Interaction
+    , notesPage : NoteState
+    , isRecording : Bool
     }
 
 
-type alias Connection =
-    { connectionId : Int
-    , date : Date
-    , notes : List String
-    , tags : Tags
-    , recommendations : Maybe Recommendation
-    , followUpDate : Date
-    }
+type NoteState
+    = Choose
+    | Text
+    | Audio
 
 
-type alias Contact =
-    { contactId : Int
-    , name : String
+type alias Interaction =
+    { name : String
     , organisation : String
     , email : String
-    , phone : Int
-    , connections : List Int
+    , phone : String
+    , notes : Notes
+    , tags : List Tags
+    , recommendations : List Recommendation
+    , followUpDate : Maybe Date
     }
 
 
 type alias Recommendation =
     { name : String
     , organisation : String
+    }
+
+
+type alias Notes =
+    { text : String
+    , audioUrl : String
     }
 
 
@@ -71,5 +70,4 @@ type Tags
 
 type Msg
     = UrlChange Navigation.Location
-    | ChangeModelInput String String
-    | SetContact String
+    | SetContactName String

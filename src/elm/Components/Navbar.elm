@@ -20,12 +20,11 @@ navbarContent : List (Html Msg)
 navbarContent =
     List.map navbarLink
         [ "home"
-        , "newOrOldContact"
-        , "newCreateContact"
-        , "newDate"
+        , "newContactDetails"
         , "newNotes"
+        , "newRecommend"
         , "newShare"
-        , "newFollowUp"
-        , "newAddToDB"
-        , "newEnd"
+        , "newThankYou"
+        , "previousOverview"
+        , "previousDetail"
         ]
