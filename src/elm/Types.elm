@@ -43,7 +43,7 @@ type alias Interaction =
     , email : String
     , phone : String
     , notes : Notes
-    , tags : List Tags
+    , tags : String
     , recommendations : List Recommendation
     , followUpDate : Maybe Date
     }
@@ -85,3 +85,4 @@ type Msg
     | RecieveAudio String
     | PlayAudio Bool
     | ReRecord
+    | UpdateTags String

@@ -18,7 +18,7 @@ init =
             DatePicker.init
     in
     ( { route = NewNotesRoute
-      , currentInteraction = Interaction Nothing "" "" "" "" (Notes "" "") [] [] Nothing
+      , currentInteraction = Interaction Nothing "" "" "" "" (Notes "" "") "" [] Nothing
       , recordedInteractions = []
       , notesPage = Choose
       , isRecording = False
@@ -185,5 +185,15 @@ update msg model =
 
                 newInteraction =
                     { interaction | notes = newNotes }
+            in
+            ( { model | currentInteraction = newInteraction }, Cmd.none )
+
+        UpdateTags tag ->
+            let
+                interaction =
+                    model.currentInteraction
+
+                newInteraction =
+                    { interaction | tags = tag }
             in
             ( { model | currentInteraction = newInteraction }, Cmd.none )

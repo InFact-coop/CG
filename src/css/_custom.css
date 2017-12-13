@@ -164,3 +164,9 @@ button {
     background-color: red;
   }
 }
+
+.bg-record {
+  background-image: url('./assets/png/record_bg.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+}

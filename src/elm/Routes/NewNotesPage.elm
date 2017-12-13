@@ -23,31 +23,34 @@ newNotesPage model =
                     audioView model
     in
     div [ class "blue center" ]
-        [ titleBar "What happened?"
-        , div [ class "tc" ]
-            [ div [ class "tc" ]
-                [ DatePicker.view
-                    model.currentInteraction.interactionDate
-                    DatePicker.defaultSettings
-                    model.datePicker
-                    |> Html.map SetDatePicker
+        [ div [ class "bg-record vh-100" ]
+            [ titleBar "What happened?"
+            , div [ class "vh-50 mb5" ] [ viewChoice ]
+            , div [ class "tc mt5 pt5" ]
+                [ div [ class "tc" ]
+                    [ DatePicker.view
+                        model.currentInteraction.interactionDate
+                        DatePicker.defaultSettings
+                        model.datePicker
+                        |> Html.map SetDatePicker
+                    ]
                 ]
             ]
-        , viewChoice
         ]
 
 
 chooseView : Model -> Html Msg
 chooseView model =
     div []
-        [ section [ class "flex justify-center pa2" ]
-            [ button [ onClick <| ChangeNotes Audio, class "tc ma2 link dim dib f4" ]
+        [ section [ class "center tc" ]
+            [ div [ class "w-100" ] [ img [ class "vh-25 mt4 mb3 pa3 br-100", src "./assets/svg_icons/handshake_icn.svg" ] [] ]
+            , button [ onClick <| ChangeNotes Audio, class "tc ma2 link dim dib f4" ]
                 [ img [ src "./assets/svg_icons/record.svg" ] [] ]
             , button [ onClick <| ChangeNotes Text, class "tc ma2 link dim dib f4" ]
                 [ img [ src "./assets/svg_icons/memo.svg" ] [] ]
             ]
         , section [ class "pa4 flex justify-center" ]
-            [ button [ class "blue tc ma0 center brand bg-white h3 w5 b br1 b-orange f4", onClick <| ChangeNotes Choose ] [ text "Next" ]
+            [ a [ class "b-blue ba link blue tc ma0 mt2 pt2 center bg-white h3 w-100 b br3 f3", href "#newRecommend" ] [ text "Next" ]
             ]
         ]
 
@@ -67,7 +70,7 @@ audioView model =
             if exists then
                 div []
                     [ button [ id "play-button", class buttonClass, onClick <| PlayAudio True ] [ img [ src "./assets/svg_icons/hear_rec.svg" ] [] ]
-                    , button [ class buttonClass, onClick ReRecord ] [ img [ src "./assets/png's/redo.png", class "h2 pb2" ] [] ]
+                    , button [ class buttonClass, onClick ReRecord ] [ img [ src "./assets/png/redo.png", class "h2 pb2" ] [] ]
                     ]
             else
                 div []
@@ -96,7 +99,9 @@ textView : Model -> Html Msg
 textView model =
     div []
         [ div [ class "pa3" ]
-            [ textarea
+            [ section [ class "flex justify-center pa2" ]
+                [ img [ src "./assets/svg_icons/memo.svg" ] [] ]
+            , textarea
                 [ class "vh-25 w-100 input-reset pa3 f4 br3 b-orange listOfVisits"
                 , onInput UpdateTextNote
                 , value model.currentInteraction.notes.text
@@ -104,12 +109,20 @@ textView model =
                 ]
                 []
             ]
-        , section [ class "flex justify-center pa2" ]
-            [ button [ onClick <| ChangeNotes Text, class "tc ma2 link dim dib f4" ]
-                [ img [ src "./assets/svg_icons/memo.svg" ] [] ]
-            ]
+        , div [ class "tc" ] [ selectCat model ]
         , section [ class "pa4 flex justify-center" ]
             [ button [ onClick <| ChangeNotes Choose, class "tc ma2 link dim dib f4" ]
                 [ img [ src "./assets/svg_icons/back.svg" ] [] ]
             ]
         ]
+
+
+selectCat : Model -> Html Msg
+selectCat model =
+    select [ onInput UpdateTags, class "ba b--black pa2 f4 w-75 mh2" ]
+        (List.map (catOption model) [ "Select Category", "Artist", "CGmember", "Event" ])
+
+
+catOption : Model -> String -> Html Msg
+catOption model category =
+    option [ value category, selected <| category == model.currentInteraction.tags ] [ text category ]
