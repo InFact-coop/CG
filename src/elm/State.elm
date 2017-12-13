@@ -75,3 +75,22 @@ update msg model =
                     { interaction | name = input }
             in
             ( { model | currentInteraction = newInteraction }, Cmd.none )
+
+        ChangeNotes view ->
+            ( { model | notesPage = view }, Cmd.none )
+
+        UpdateTextNote textNote ->
+            let
+                interaction =
+                    model.currentInteraction
+
+                notes =
+                    model.currentInteraction.notes
+
+                newNotes =
+                    { notes | text = textNote }
+
+                newInteraction =
+                    { interaction | notes = newNotes }
+            in
+            ( { model | currentInteraction = newInteraction }, Cmd.none )
