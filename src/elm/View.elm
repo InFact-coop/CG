@@ -1,22 +1,19 @@
 module View exposing (..)
 
-import Html exposing (..)
-
-
 -- My Elm Files
 
-import Types exposing (..)
+import Components.Navbar exposing (..)
+import Html exposing (..)
 import Routes.Home exposing (..)
-import Routes.NewDatePage exposing (..)
-import Routes.NewContactPage exposing (..)
+import Routes.NewContactDetailsPage exposing (..)
 import Routes.NewNotesPage exposing (..)
 import Routes.NewRecommendPage exposing (..)
 import Routes.NewSharePage exposing (..)
-import Routes.NewFollowUpPage exposing (..)
-import Routes.NewAddToDBPage exposing (..)
-import Routes.NewEndPage exposing (..)
+import Routes.NewThankYouPage exposing (..)
 import Routes.NotFoundPage exposing (..)
-import Components.Navbar exposing (..)
+import Routes.PreviousDetailPage exposing (..)
+import Routes.PreviousOverviewPage exposing (..)
+import Types exposing (..)
 
 
 view : Model -> Html Msg
@@ -27,11 +24,8 @@ view model =
                 HomeRoute ->
                     home model
 
-                NewDateRoute ->
-                    newDatePage model
-
-                NewContactRoute ->
-                    newContactPage model
+                NewContactDetailsRoute ->
+                    newContactDetailsPage model
 
                 NewNotesRoute ->
                     newNotesPage model
@@ -42,19 +36,19 @@ view model =
                 NewShareRoute ->
                     newSharePage model
 
-                NewFollowUpRoute ->
-                    newFollowUpPage model
+                NewThankYouRoute ->
+                    newThankYouPage model
 
-                NewAddToDBRoute ->
-                    newAddToDBPage model
+                PreviousInteractionsOverviewRoute ->
+                    previousOverviewPage model
 
-                NewEndRoute ->
-                    newEndPage model
+                PreviousInteractionsDetailRoute ->
+                    previousDetailPage model
 
                 NotFoundRoute ->
                     notFoundPage model
     in
-        div []
-            [ navbar model
-            , page
-            ]
+    div []
+        [ navbar model
+        , page
+        ]

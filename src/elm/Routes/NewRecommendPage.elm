@@ -9,6 +9,7 @@ import Types exposing (..)
 newRecommendPage : Model -> Html Msg
 newRecommendPage model =
     div [ class "w-60-ns center" ]
-        [ h1 [ class "tc f1" ] [ text "newRecommendRoute" ]
-        , p [ class "f3 w60 mh1 tc" ] [ text "newRecommendRoute" ]
+        [ h1 [ class "tc f1" ] [ text "Did you make any recommendations?" ]
+        , button [ class "f3 w60 mh1 tc" ] [ text "Yes" ]
+        , button [ class "f3 w60 mh1 tc" ] [ text "No" ]
         ]

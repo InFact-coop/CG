@@ -9,37 +9,52 @@ import Navigation
 
 type Route
     = HomeRoute
-    | NewDateRoute
-    | NewContactRoute
-    | NewNotesRoute
-    | NewRecommendRoute
-    | NewShareRoute
-    | NewFollowUpRoute
-    | NewAddToDBRoute
-    | NewEndRoute
+    | NewContactDetailsRoute
+    | NewNotesRoute --| with date
+    | NewRecommendRoute --| with tags
+    | NewShareRoute --| with follow up date
+    | NewThankYouRoute
+    | PreviousInteractionsOverviewRoute
+    | PreviousInteractionsDetailRoute
     | NotFoundRoute
 
 
 type alias Model =
     { route : Route
-    , currentContacts : List Contact
+    , currentInteraction : Interaction
+    , recordedInteractions : List Interaction
+    , notesPage : NoteState
+    , isRecording : Bool
     }
 
 
-type alias Connection =
-    { date : Date
-    , notes : List String
-    , tags : Tags
-    , recommendations : Maybe List Contact
-    , followUpDate : Date
-    }
+type NoteState
+    = Choose
+    | Text
+    | Audio
 
 
-type alias Contact =
+type alias Interaction =
     { name : String
+    , organisation : String
     , email : String
-    , phone : Int
-    , connections : List Contection
+    , phone : String
+    , notes : Notes
+    , tags : List Tags
+    , recommendations : List Recommendation
+    , followUpDate : Maybe Date
+    }
+
+
+type alias Recommendation =
+    { name : String
+    , organisation : String
+    }
+
+
+type alias Notes =
+    { text : String
+    , audioUrl : String
     }
 
 
@@ -54,5 +69,5 @@ type Tags
 
 
 type Msg
-    = Change String
-    | UrlChange Navigation.Location
+    = UrlChange Navigation.Location
+    | SetContactName String
