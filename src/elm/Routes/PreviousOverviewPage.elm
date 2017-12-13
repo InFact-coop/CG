@@ -9,9 +9,9 @@ import Types exposing (..)
 previousOverviewPage : Model -> Html Msg
 previousOverviewPage model =
     div [ class "w-60-ns center" ]
-        [ h2 [ class "center f3" ] [ text "CG Interactions" ]
-        , p [] [ text "search by name, tags or organisation" ]
-        , input [ class "pa2 ma2", onInput SetSearchInput, value model.searchInput ] []
+        [ h2 [ class "blue center f3 db tc" ] [ text "CG Interactions" ]
+        , p [ class "blue center db tc" ] [ text "search by name, tags or organisation" ]
+        , input [ class "center db b-input pa2 ma2", onInput SetSearchInput, value model.searchInput, placeholder "search" ] []
         , section
             []
             (interactionContent

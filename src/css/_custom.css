@@ -32,4 +32,9 @@ button {
 .h6 {
   height:25rem;
 }
+
+.b-input {
+  border: solid 2px var(--blue);
+  border-radius: 0.25rem;
+}
 /*finish*/
