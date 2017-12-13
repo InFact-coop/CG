@@ -25,6 +25,7 @@ type alias Model =
     , recordedInteractions : List Interaction
     , notesPage : NoteState
     , isRecording : Bool
+    , liveInteraction : Interaction
     }
 
 
@@ -71,3 +72,4 @@ type Tags
 type Msg
     = UrlChange Navigation.Location
     | SetContactName String
+    | SelectInteractionItem Interaction

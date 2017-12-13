@@ -1,6 +1,7 @@
 module State exposing (..)
 
-import Dict exposing (..)
+import Navigation exposing (..)
+import Date exposing (..)
 import Types exposing (..)
 
 
@@ -11,21 +12,24 @@ initModel : Model
 initModel =
     { route = HomeRoute
     , currentInteraction = Interaction "" "" "" "" (Notes "" "") [] [] Nothing
-    , recordedInteractions = []
+    , recordedInteractions = listRecordedInteractions
     , notesPage = Choose
     , isRecording = False
+    , liveInteraction = Interaction "" "" "" "" (Notes "" "") [] [] Nothing
     }
 
 
+listRecordedInteractions : List Interaction
+listRecordedInteractions =
+    [ Interaction "Alexa Vega" "PHS Limited" "alexavega@gmail.com" "+447598772611" (Notes "A grafitti artist from Stroud that is looking for work" "") [ Artist ] [] Nothing
+    , Interaction "Daryl Sabara" "Cortez Ltd" "darylsabara@cortez.com" "+447532172611" (Notes "school teacher looking for a grafitti artist" "") [ Event ] [] Nothing
+    , Interaction "Antonio Banderas" "Cargo S.L." "banderas@cargo.com" "+447598772987" (Notes "school teacher looking for a grafitti artist" "") [ Event ] [] Nothing
+    , Interaction "Carla Gugino" "Organisation" "darylsabara@cortez.com" "+447532172611" (Notes "school teacher looking for a grafitti artist" "") [ Event ] [] Nothing
+    , Interaction "Antonio Banderas" "Cargo S.L." "banderas@cargo.com" "+447598772987" (Notes "school teacher looking for a grafitti artist" "") [ Event ] [] Nothing
+    ]
 
---initRecordedContacts : List Contact
---initRecordedContacts =
---    [ Contact 1 "Alexa Vega" "PHS Limited" "alexavega@gmail.com" 7598772611 [ 1 ]
---    , Contact 2 "Daryl Sabara" "Cortez Ltd" "darylsabara@cortez.com" 7532172611 [ 2 ]
---    , Contact 3 "Antonio Banderas" "Cargo S.L." "banderas@cargo.com" 7598772987 [ 1 ]
---    , Contact 4 "Carla Gugino" "Organisation" "darylsabara@cortez.com" 7532172611 [ 2 ]
---    , Contact 5 "Antonio Banderas" "Cargo S.L." "banderas@cargo.com" 7598772987 [ 1 ]
---    ]
+
+
 --UPDATE
 
 
@@ -74,4 +78,11 @@ update msg model =
                 newInteraction =
                     { interaction | name = input }
             in
-            ( { model | currentInteraction = newInteraction }, Cmd.none )
+                ( { model | currentInteraction = newInteraction }, Cmd.none )
+
+        SelectInteractionItem currentInteraction ->
+            let
+                command =
+                    Navigation.newUrl "#previousDetail"
+            in
+                ( { model | liveInteraction = currentInteraction }, command )

@@ -9,6 +9,41 @@ import Types exposing (..)
 previousOverviewPage : Model -> Html Msg
 previousOverviewPage model =
     div [ class "w-60-ns center" ]
-        [ h1 [ class "tc f1" ] [ text "endroute" ]
-        , p [ class "f3 w60 mh1 tc" ] [ text "endroute" ]
+        [ h2 [] [ text "CG Interactions" ]
+        , p [] [ text "search by name, tags or organisation" ]
+        , input [ class "pa2 ma2" ] [ text "search" ]
+        , section
+            []
+            (interactionContent
+                model
+            )
         ]
+
+
+interactionItem : Interaction -> Html Msg
+interactionItem interaction =
+    button [ class "w-100", onClick <| SelectInteractionItem interaction ]
+        [ div [ class "h6" ]
+            [ li [ class "db bb bw2 b--black-10" ]
+                [ h1 [] [ text interaction.organisation ]
+                , p [] []
+                , p [ class "" ] [ text interaction.name ]
+                , div [] [ text interaction.notes.text ]
+                , div [ class "ma2" ]
+                    [ img [ src "./assets/svg's_icons/email.svg", class "" ] []
+                    , img [ src "./assets/svg's_icons/phone.svg", class "" ] []
+                    , img [ src "./assets/svg's_icons/profile.svg", class "" ] []
+                    , img [ src "./assets/svg's_icons/share.svg", class "" ] []
+                    ]
+                ]
+            ]
+        ]
+
+
+
+-- , onClick <| SelectVisitItem interaction
+
+
+interactionContent : Model -> List (Html Msg)
+interactionContent model =
+    List.map interactionItem model.recordedInteractions
