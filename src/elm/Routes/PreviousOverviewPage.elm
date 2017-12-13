@@ -9,7 +9,7 @@ import Types exposing (..)
 previousOverviewPage : Model -> Html Msg
 previousOverviewPage model =
     div [ class "w-60-ns center" ]
-        [ h2 [] [ text "CG Interactions" ]
+        [ h2 [ class "center f3" ] [ text "CG Interactions" ]
         , p [] [ text "search by name, tags or organisation" ]
         , input [ class "pa2 ma2" ] [ text "search" ]
         , section
@@ -23,8 +23,8 @@ previousOverviewPage model =
 interactionItem : Interaction -> Html Msg
 interactionItem interaction =
     button [ class "w-100", onClick <| SelectInteractionItem interaction ]
-        [ div [ class "h6" ]
-            [ li [ class "db bb bw2 b--black-10" ]
+        [ div [ class "h4" ]
+            [ li [ class "db bb bw2 b--black-10 ma4" ]
                 [ h1 [] [ text interaction.organisation ]
                 , p [] []
                 , p [ class "" ] [ text interaction.name ]

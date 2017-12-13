@@ -14,8 +14,7 @@ previousDetailPage model =
                 intText ->
                     div
                         [ class "flex v-mid bb bw2 b--black-10" ]
-                        [ img [ class "ma3", src "./assets/svg_icons/memo.svg" ] []
-                        , p [ class "gray" ] [ text intText ]
+                        [ p [ class "blue center f5" ] [ text intText ]
                         ]
 
         interactionAudioHtml =
@@ -24,9 +23,9 @@ previousDetailPage model =
                     audio [ class " mv3 pa3", controls True, id "audio", src audioUrl ] []
     in
         div [ class "interactionDetailsImage w-100 center brand tc" ]
-            [ div [ class "w-100 tl pa2 bg-near-white bb b--black-10 v-mid" ]
+            [ div [ class "w-100 h4 bg-white bb b--black-10 v-mid flex" ]
                 [ a [ href "#" ] [ img [ class "pa3 h2", src "./assets/png's/icon.png" ] [] ]
-                , h2 [ class "pl3" ] [ text model.liveInteraction.name ]
+                , h2 [ class "blue center pt2" ] [ text model.liveInteraction.name ]
                 ]
             , div [ class "w-100 center ma0 pa0" ]
                 [ div [ class "inline-flex flex-wrap" ]
@@ -39,12 +38,12 @@ previousDetailPage model =
             , interactionAudioHtml
             , div [ class "bb bg-blue" ]
                 [ div [ class "white" ]
-                    [ h3 [ class "pt2" ] [ text "Date and time" ]
-                    , p [ class "ph2 pv0" ] [ text "Met on Aug 3rd, 2017 at 6pm" ]
-                    , p [ class "ph2 pv0" ] [ text "at New Town Hall, GL8 9JDF" ]
+                    [ h3 [ class "center pt2 underline" ] [ text "Date and time" ]
+                    , p [ class "ph2 pv0 f5" ] [ text "Met on Aug 3rd, 2017 at 6pm" ]
+                    , p [ class "ph2 pv0 f5" ] [ text "at New Town Hall, GL8 9JDF" ]
                     ]
-                , div [ class "bg-white" ]
-                    [ h3 [ class "center pt3" ] [ text "Notes" ]
+                , div [ class "blue bg-white" ]
+                    [ h3 [ class "bold center pt3" ] [ text "Notes" ]
                     , interactionTextHtml
                     ]
                 ]
