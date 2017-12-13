@@ -71,3 +71,4 @@ type Tags
 type Msg
     = UrlChange Navigation.Location
     | SetContactName String
+    | GoBack
