@@ -71,4 +71,7 @@ type Tags
 type Msg
     = UrlChange Navigation.Location
     | SetContactName String
+    | SetContactEmail String
+    | SetContactPhone String
+    | SetContactOrganisation String
     | GoBack

@@ -76,5 +76,35 @@ update msg model =
             in
                 ( { model | currentInteraction = newInteraction }, Cmd.none )
 
+        SetContactEmail input ->
+            let
+                interaction =
+                    model.currentInteraction
+
+                newInteraction =
+                    { interaction | email = input }
+            in
+                ( { model | currentInteraction = newInteraction }, Cmd.none )
+
+        SetContactPhone input ->
+            let
+                interaction =
+                    model.currentInteraction
+
+                newInteraction =
+                    { interaction | phone = input }
+            in
+                ( { model | currentInteraction = newInteraction }, Cmd.none )
+
+        SetContactOrganisation input ->
+            let
+                interaction =
+                    model.currentInteraction
+
+                newInteraction =
+                    { interaction | organisation = input }
+            in
+                ( { model | currentInteraction = newInteraction }, Cmd.none )
+
         GoBack ->
             ( model, Navigation.back 1 )
