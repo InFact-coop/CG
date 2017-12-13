@@ -16,5 +16,20 @@ button {
 .background-back {
   background-image: url(./assets/svg_icons/back.svg);
   background-repeat: no-repeat;
-  background-position: center; 
+  background-position: center;
 }
+
+
+/*rebe's changes
+/**/
+.interactionDetailsImage{
+  background: url("./assets/png's/record_bg.png") no-repeat;
+  background-size: cover;
+  /*height: 100vh;*/
+
+}
+
+.h6 {
+  height:25rem;
+}
+/*finish*/

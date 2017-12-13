@@ -48,7 +48,5 @@ view model =
                 NotFoundRoute ->
                     notFoundPage model
     in
-    div []
-        [ navbar model
-        , page
-        ]
+        div []
+            [ page ]
