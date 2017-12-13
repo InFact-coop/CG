@@ -3,6 +3,7 @@ module State exposing (..)
 import Date
 import DatePicker
 import Navigation
+import Subscriptions exposing (..)
 import Task
 import Types exposing (..)
 
@@ -145,3 +146,25 @@ update msg model =
 
         GoBack ->
             ( model, Navigation.back 1 )
+
+        StartAudio ->
+            ( model, recordStart () )
+
+        StopAudio ->
+            ( model, recordStop () )
+
+        RecieveAudio audioUrl ->
+            let
+                interaction =
+                    model.currentInteraction
+
+                notes =
+                    model.currentInteraction.notes
+
+                newNotes =
+                    { notes | audioUrl = audioUrl }
+
+                newInteraction =
+                    { interaction | notes = newNotes }
+            in
+            ( { model | currentInteraction = newInteraction }, Cmd.none )

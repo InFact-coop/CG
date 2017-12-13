@@ -20,9 +20,12 @@ button {
 .elm-datepicker--input {
   text-align: center;
   font-size: 2rem;
+  color: var(--blue);
+  display: inline-block;
 }
 .elm-datepicker--input:focus {
   outline: 0;
+  color: var(--blue);
 }
 
 .elm-datepicker--picker {

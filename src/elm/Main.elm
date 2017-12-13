@@ -5,6 +5,7 @@ module Main exposing (..)
 import DatePicker
 import Navigation
 import State exposing (..)
+import Subscriptions exposing (..)
 import Types exposing (..)
 import View exposing (..)
 
@@ -15,5 +16,5 @@ main =
         { init = always init
         , view = view
         , update = update
-        , subscriptions = always Sub.none
+        , subscriptions = subscriptions
         }
