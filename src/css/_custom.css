@@ -145,3 +145,9 @@ button {
 .elm-datepicker--other-month.elm-datepicker--picked {
   color: white;
 }
+
+.background-back {
+  background-image: url(./assets/svg_icons/back.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+}

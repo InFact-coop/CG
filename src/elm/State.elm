@@ -2,6 +2,7 @@ module State exposing (..)
 
 import Date
 import DatePicker
+import Navigation
 import Task
 import Types exposing (..)
 
@@ -141,3 +142,6 @@ update msg model =
                 , datePicker = newDatePicker
             }
                 ! [ Cmd.map SetDatePicker datePickerCmd ]
+
+        GoBack ->
+            ( model, Navigation.back 1 )
