@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="116px" height="116px" viewBox="0 0 116 116" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 47.1 (45422) - http://www.bohemiancoding.com/sketch -->
+    <title>man</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="export" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Artboard-4" transform="translate(-106.000000, -12.000000)" fill-rule="nonzero" fill="#497693">
+            <g id="man" transform="translate(106.000000, 12.000000)">
+                <path d="M58,0 C26.0195484,0 0,26.0195484 0,58 C0,89.9804516 26.0195484,116 58,116 C89.9804516,116 116,89.9804516 116,58 C116,26.0195484 89.9804516,0 58,0 Z M58,112.258065 C28.0813548,112.258065 3.74193548,87.9186452 3.74193548,58 C3.74193548,56.4059355 3.82612903,54.8305806 3.96083871,53.2701935 C10.9582581,44.3213548 20.3112258,44.2596129 32.0627742,44.3157419 C45.1894839,44.2914194 61.3976774,44.3307097 78.0212258,30.2142581 C91.0936774,49.6629677 107.011871,53.7229677 112.136452,54.5443226 C112.209419,55.6874839 112.258065,56.838129 112.258065,58 C112.258065,87.9186452 87.9186452,112.258065 58,112.258065 Z" id="Shape"></path>
+                <circle id="Oval" cx="32.5" cy="70.5" r="6.5"></circle>
+                <circle id="Oval" cx="83.5" cy="70.5" r="6.5"></circle>
+            </g>
+        </g>
+    </g>
+</svg>

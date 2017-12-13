@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 47.1 (45422) - http://www.bohemiancoding.com/sketch -->
+    <title>phone</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="export" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="icons" transform="translate(-205.000000, -292.000000)" fill-rule="nonzero" fill="#497693">
+            <g id="phone-call" transform="translate(205.000000, 292.000000)">
+                <path d="M16.293,14.293 L13,17.586 L6.414,11 L9.707,7.707 C10.098,7.316 10.098,6.683 9.707,6.293 L4.707,1.293 C4.316,0.902 3.683,0.902 3.293,1.293 L0,4.586 C0,15.653 8.345,24 19.414,24 L22.707,20.707 C23.098,20.316 23.098,19.683 22.707,19.293 L17.707,14.293 C17.317,13.903 16.684,13.903 16.293,14.293 Z" id="Shape"></path>
+                <path d="M24,10 L22,10 C22,5.589 18.411,2 14,2 L14,0 C19.514,0 24,4.486 24,10 Z" id="Shape"></path>
+                <path d="M20,10 L18,10 C18,7.794 16.206,6 14,6 L14,4 C17.309,4 20,6.691 20,10 Z" id="Shape"></path>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 47.1 (45422) - http://www.bohemiancoding.com/sketch -->
+    <title>company</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="export" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="icons" transform="translate(-120.000000, -292.000000)" fill-rule="nonzero" fill="#497693">
+            <g id="building" transform="translate(120.000000, 292.000000)">
+                <path d="M7,10 L5,10 L5,1 C5,0.447 5.447,0 6,0 L18,0 C18.553,0 19,0.447 19,1 L19,7 L17,7 L17,2 L7,2 L7,10 Z" id="Shape"></path>
+                <path d="M23,8 L14,8 C13.447,8 13,8.447 13,9 L13,22 L11,22 L11,13 C11,12.447 10.553,12 10,12 L1,12 C0.447,12 0,12.447 0,13 L0,23 C0,23.553 0.447,24 1,24 L23,24 C23.553,24 24,23.553 24,23 L24,9 C24,8.447 23.553,8 23,8 Z M7,21 L4,21 L4,19 L7,19 L7,21 Z M7,17 L4,17 L4,15 L7,15 L7,17 Z M20,21 L17,21 L17,19 L20,19 L20,21 Z M20,17 L17,17 L17,15 L20,15 L20,17 Z M20,13 L17,13 L17,11 L20,11 L20,13 Z" id="Shape"></path>
+            </g>
+        </g>
+    </g>
+</svg>

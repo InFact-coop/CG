@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="100px" height="100px" viewBox="0 0 100 100" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 47.1 (45422) - http://www.bohemiancoding.com/sketch -->
+    <title>see_conn</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="export" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Artboard" transform="translate(-44.000000, -83.000000)">
+            <g id="Group" transform="translate(44.000000, 83.000000)">
+                <circle id="Oval-2" stroke="#497693" stroke-width="2" cx="50" cy="50" r="49"></circle>
+                <g id="connect" transform="translate(19.000000, 21.000000)" fill-rule="nonzero" fill="#497693">
+                    <path d="M11,32 C4.935,32 0,36.935 0,43 C0,49.065 4.935,54 11,54 C17.065,54 22,49.065 22,43 C22,36.935 17.065,32 11,32 Z" id="Shape"></path>
+                    <path d="M23.949,42 C23.975,42.331 24,42.662 24,43 C24,43.338 23.975,43.669 23.949,44 L38.05,44 C38.025,43.669 38,43.338 38,43 C38,42.662 38.025,42.331 38.051,42 L23.949,42 Z" id="Shape"></path>
+                    <path d="M51,32 C44.935,32 40,36.935 40,43 C40,49.065 44.935,54 51,54 C57.065,54 62,49.065 62,43 C62,36.935 57.065,32 51,32 Z" id="Shape"></path>
+                    <path d="M24.983,22.513 C24.389,22.201 23.828,21.841 23.292,21.445 L17.016,31.488 C17.61,31.8 18.171,32.16 18.707,32.556 L24.983,22.513 Z" id="Shape"></path>
+                    <path d="M37.017,22.513 L43.293,32.556 C43.828,32.16 44.39,31.799 44.984,31.488 L38.708,21.445 C38.172,21.841 37.61,22.201 37.017,22.513 Z" id="Shape"></path>
+                    <path d="M31,22 C37.065,22 42,17.065 42,11 C42,4.935 37.065,0 31,0 C24.935,0 20,4.935 20,11 C20,17.065 24.935,22 31,22 Z" id="Shape"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

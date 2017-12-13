@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="100px" height="100px" viewBox="0 0 100 100" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 47.1 (45422) - http://www.bohemiancoding.com/sketch -->
+    <title>add_new</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="export" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Artboard" transform="translate(-246.000000, -83.000000)">
+            <g id="Group-2" transform="translate(246.000000, 83.000000)">
+                <circle id="Oval-2" stroke="#497693" stroke-width="2" cx="50" cy="50" r="49"></circle>
+                <g id="circle-add" transform="translate(19.000000, 19.000000)" fill-rule="nonzero" fill="#497693">
+                    <path d="M31,0 C13.9,0 0,13.9 0,31 C0,48.1 13.9,62 31,62 C48.1,62 62,48.1 62,31 C62,13.9 48.1,0 31,0 Z M45,32 L32,32 L32,45 C32,45.6 31.6,46 31,46 C30.4,46 30,45.6 30,45 L30,32 L17,32 C16.4,32 16,31.6 16,31 C16,30.4 16.4,30 17,30 L30,30 L30,17 C30,16.4 30.4,16 31,16 C31.6,16 32,16.4 32,17 L32,30 L45,30 C45.6,30 46,30.4 46,31 C46,31.6 45.6,32 45,32 Z" id="Shape"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
