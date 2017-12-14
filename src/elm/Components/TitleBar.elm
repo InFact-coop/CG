@@ -20,7 +20,7 @@ titleBar bool title =
                 False ->
                     div [] []
     in
-        div [ class "db ma0 bg-white blue w-100 pa2 flex justify-center relative" ]
+        div [ class "db ma0 bg-white blue w-100 pa2 flex justify-center items-center relative" ]
             [ backButton
             , h1 [ class "" ] [ text title ]
             ]
