@@ -1,13 +1,14 @@
 module Routes.NewRecommendPage exposing (..)
 
 import Components.TitleBar exposing (..)
+import DatePicker exposing (..)
 import Html exposing (..)
 import Html.Attributes exposing (..)
 import Html.Events exposing (..)
 import Types exposing (..)
 
 
-newRecommendPage : Model -> Html Msg
+newRecommendPage : Model -> Html Types.Msg
 newRecommendPage model =
     let
         viewChoice =
@@ -19,7 +20,7 @@ newRecommendPage model =
                     viewMaker (recommendationsView model)
 
                 FollowUp ->
-                    viewMaker followUpView
+                    viewMaker (followUpView model)
 
                 Share ->
                     viewMaker (shareView model)
@@ -34,7 +35,7 @@ newRecommendPage model =
         ]
 
 
-chooseView : Html Msg
+chooseView : Html Types.Msg
 chooseView =
     section [ class "center ma0 pt3" ]
         [ div [ class "w-100 tc" ] [ buttonMaker "./assets/svg_icons/see_conn.svg" "Recommendations I made" Recommendations ]
@@ -45,7 +46,7 @@ chooseView =
         ]
 
 
-buttonMaker : String -> String -> DetailsState -> Html Msg
+buttonMaker : String -> String -> DetailsState -> Html Types.Msg
 buttonMaker imgSrc message newView =
     button [ class "link ma3", onClick <| ChangeDetails newView ]
         [ img [ src imgSrc ] []
@@ -53,7 +54,7 @@ buttonMaker imgSrc message newView =
         ]
 
 
-viewMaker : Html Msg -> Html Msg
+viewMaker : Html Types.Msg -> Html Types.Msg
 viewMaker filler =
     div [ class "fixed bottom-0 left-0 vh-100 w-100 pt5" ]
         [ div [ class "ba b--blue bw2 br3 bg-white z-999 w-90 vh-75 pa0 ma0 center mt5 grows transition-none " ]
@@ -65,11 +66,28 @@ viewMaker filler =
         ]
 
 
-followUpView =
-    div [ class "tc" ] [ text "follow" ]
+followUpView model =
+    let
+        settings =
+            DatePicker.defaultSettings
+    in
+    div [ class "tc" ]
+        [ p [ class "blue b f4" ] [ text "Set a date to follow up..." ]
+        , div [ class "tc" ]
+            [ DatePicker.view
+                model.currentInteraction.followUpDate
+                { settings
+                    | placeholder = "Select Date"
+                    , classNamespace = "f4 tc center elm-datepicker--"
+                }
+                model.datePicker
+                |> Html.map SetDatePickerF
+            ]
+        , div [ class "pt6" ] [ button [ class "link white tc ma0 mt3 pt1 center bg-white h3 w-80 b bg-blue br3 f3", onClick <| ChangeDetails ChooseDeets ] [ text "Done" ] ]
+        ]
 
 
-shareView : Model -> Html Msg
+shareView : Model -> Html Types.Msg
 shareView model =
     div [ class "w-100 tc f4" ]
         [ p [ class "blue b" ] [ text "Share this interaction with..." ]
@@ -82,7 +100,7 @@ shareView model =
         ]
 
 
-buttonItem : Bool -> Msg -> String -> Html Msg
+buttonItem : Bool -> Types.Msg -> String -> Html Types.Msg
 buttonItem state msg textValue =
     div [ class "pa2" ]
         [ button [ class "w-50 tr bn bg-white", onClick msg ]
@@ -92,7 +110,7 @@ buttonItem state msg textValue =
         ]
 
 
-recommendationsView : Model -> Html Msg
+recommendationsView : Model -> Html Types.Msg
 recommendationsView { newRecommend } =
     div [ class "tc" ]
         [ div [ class "bb b--blue bw1 w-80 center pb2 mb5" ]

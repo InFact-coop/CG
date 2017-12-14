@@ -318,3 +318,28 @@ update msg model =
 
         Shared5 ->
             ( { model | shared5 = not model.shared5 }, Cmd.none )
+
+        SetDatePickerF msg ->
+            let
+                ( newDatePicker, datePickerCmd, dateEvent ) =
+                    DatePicker.update DatePicker.defaultSettings msg model.datePicker
+
+                date =
+                    case dateEvent of
+                        DatePicker.NoChange ->
+                            model.currentInteraction.followUpDate
+
+                        DatePicker.Changed newDate ->
+                            newDate
+
+                interaction =
+                    model.currentInteraction
+
+                newInteraction =
+                    { interaction | followUpDate = date }
+            in
+            { model
+                | currentInteraction = newInteraction
+                , datePicker = newDatePicker
+            }
+                ! [ Cmd.map SetDatePickerF datePickerCmd ]

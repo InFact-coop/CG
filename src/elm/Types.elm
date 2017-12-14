@@ -137,3 +137,4 @@ type Msg
     | Shared3
     | Shared4
     | Shared5
+    | SetDatePickerF DatePicker.Msg
