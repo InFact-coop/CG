@@ -14,7 +14,7 @@ previousOverviewPage model =
         , p [ class "blue center db tc" ] [ text "Search by name, tags or organisation" ]
         , input [ class "center db b-input pa2 ma2 w8", onInput SetSearchInput, value model.searchInput, placeholder "search" ] []
         , section
-            [ class "center absolute imageInteractionItem  bt b--light-blue br0 w-100" ]
+            [ class "center absolute imageInteractionItem  bt bw1 b--light-blue br0 w-100" ]
             (interactionContent
                 model
             )

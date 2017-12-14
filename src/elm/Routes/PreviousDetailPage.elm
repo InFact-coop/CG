@@ -66,7 +66,7 @@ previousDetailPage model =
 recommendItem : Recommendation -> Html Msg
 recommendItem rec =
     div []
-        [ p [] [ text <| "Shared with " ++ rec.name ++ " from " ++ rec.organisation ]
+        [ p [] [ text <| "Recommended " ++ rec.name ++ " from " ++ rec.organisation ]
         ]
 
 
