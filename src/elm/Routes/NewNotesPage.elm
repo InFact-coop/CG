@@ -22,21 +22,21 @@ newNotesPage model =
                 Audio ->
                     audioView model
     in
-    div [ class "blue center" ]
-        [ div [ class "bg-record vh-100" ]
-            [ titleBar "What happened?"
-            , div [ class "vh-50 mb5" ] [ viewChoice ]
-            , div [ class "tc mt5 pt5" ]
-                [ div [ class "tc" ]
-                    [ DatePicker.view
-                        model.currentInteraction.interactionDate
-                        DatePicker.defaultSettings
-                        model.datePicker
-                        |> Html.map SetDatePicker
+        div [ class "blue center" ]
+            [ div [ class "bg-record vh-100" ]
+                [ titleBar "What happened?"
+                , div [ class "vh-50 mb5" ] [ viewChoice ]
+                , div [ class "tc mt5 pt5" ]
+                    [ div [ class "tc" ]
+                        [ DatePicker.view
+                            model.currentInteraction.interactionDate
+                            DatePicker.defaultSettings
+                            model.datePicker
+                            |> Html.map SetDatePicker
+                        ]
                     ]
                 ]
             ]
-        ]
 
 
 chooseView : Model -> Html Msg
@@ -78,17 +78,17 @@ audioView model =
                     , button [ onClick StopRecording, class buttonClass, disabled <| not model.isRecording ] [ img [ src "./assets/svg_icons/REC_BTN_stop.svg" ] [] ]
                     ]
     in
-    div []
-        [ div [ class "tc" ]
-            [ audio [ controls False, class "", id "audio", src audioSrc ] []
-            , img [ class "vh-25 mt4 mb3 pa3 br-100", classList [ ( "flash", model.isRecording ) ], src "./assets/svg_icons/RECORDING.svg" ] []
-            , audioHtml
+        div []
+            [ div [ class "tc" ]
+                [ audio [ controls False, class "", id "audio", src audioSrc ] []
+                , img [ class "vh-25 mt4 mb3 pa3 br-100", classList [ ( "flash", model.isRecording ) ], src "./assets/svg_icons/RECORDING.svg" ] []
+                , audioHtml
+                ]
+            , section [ class "pa4 flex justify-center" ]
+                [ button [ onClick <| ChangeNotes Choose, class "tc ma2 link dim dib f4" ]
+                    [ img [ src "./assets/svg_icons/back.svg" ] [] ]
+                ]
             ]
-        , section [ class "pa4 flex justify-center" ]
-            [ button [ onClick <| ChangeNotes Choose, class "tc ma2 link dim dib f4" ]
-                [ img [ src "./assets/svg_icons/back.svg" ] [] ]
-            ]
-        ]
 
 
 buttonClass =
@@ -125,4 +125,4 @@ selectCat model =
 
 catOption : Model -> String -> Html Msg
 catOption model category =
-    option [ value category, selected <| category == model.currentInteraction.tags ] [ text category ]
+    option [ value category, selected <| category == (model.currentInteraction.tags) ] [ text category ]

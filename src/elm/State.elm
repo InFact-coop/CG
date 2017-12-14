@@ -25,7 +25,7 @@ init =
           , notesPage = Choose
           , isRecording = False
           , datePicker = datePicker
-          , liveInteraction = Interaction "" "" "" "" (Notes "" "") [] [] Nothing
+          , liveInteraction = Interaction Nothing "" "" "" "" (Notes "" "") "" [] Nothing
           , searchInput = ""
           }
         , Cmd.batch [ Task.perform ReceiveDate Date.now, Cmd.map SetDatePicker datePickerCmd ]
@@ -34,11 +34,11 @@ init =
 
 listRecordedInteractions : List Interaction
 listRecordedInteractions =
-    [ Interaction "Alexa Vega" "PHS Limited" "alexavega@gmail.com" "+447598772611" (Notes "A grafitti artist from Stroud that is looking for work" "") [ Artist ] [] Nothing
-    , Interaction "Daryl Sabara" "Cortez Ltd" "darylsabara@cortez.com" "+447532172611" (Notes "school teacher looking for a grafitti artist" "") [ Event ] [] Nothing
-    , Interaction "Antonio Banderas" "Cargo S.L." "banderas@cargo.com" "+447598772987" (Notes "school teacher looking for a grafitti artist" "") [ Event ] [] Nothing
-    , Interaction "Carla Gugino" "Organisation" "darylsabara@cortez.com" "+447532172611" (Notes "school teacher looking for a grafitti artist" "") [ Event ] [] Nothing
-    , Interaction "Antonio Banderas" "Cargo S.L." "banderas@cargo.com" "+447598772987" (Notes "school teacher looking for a grafitti artist" "") [ Event ] [] Nothing
+    [ Interaction Nothing "Alexa Vega" "PHS Limited" "alexavega@gmail.com" "+447598772611" (Notes "A grafitti artist from Stroud that is looking for work" "") "Artist" [] Nothing
+    , Interaction Nothing "Daryl Sabara" "Cortez Ltd" "darylsabara@cortez.com" "+447532172611" (Notes "school teacher looking for a grafitti artist" "") "Event" [] Nothing
+    , Interaction Nothing "Antonio Banderas" "Cargo S.L." "banderas@cargo.com" "+447598772987" (Notes "school teacher looking for a grafitti artist" "") "Event" [] Nothing
+    , Interaction Nothing "Carla Gugino" "Organisation" "darylsabara@cortez.com" "+447532172611" (Notes "school teacher looking for a grafitti artist" "") "Event" [] Nothing
+    , Interaction Nothing "Antonio Banderas" "Cargo S.L." "banderas@cargo.com" "+447598772987" (Notes "school teacher looking for a grafitti artist" "") "Event" [] Nothing
     ]
 
 

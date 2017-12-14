@@ -160,7 +160,7 @@ button {
 /*rebe's changes
 /**/
 .interactionDetailsImage{
-  background: url("./assets/png's/record_bg.png") no-repeat;
+  background: url("./assets/png/record_bg.png") no-repeat;
   background-size: cover;
   /*height: 100vh;*/
 

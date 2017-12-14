@@ -97,7 +97,6 @@ type Msg
     | RequestDate
     | ReceiveDate Date
     | SetDatePicker DatePicker.Msg
-    | GoBack
     | StartRecording
     | StopRecording
     | RecieveAudio String

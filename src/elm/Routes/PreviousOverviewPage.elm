@@ -50,7 +50,7 @@ interactionContainsSearchInput : String -> Interaction -> Bool
 interactionContainsSearchInput searchInput interaction =
     List.any (containsSearchInput searchInput) <|
         [ interaction.name, interaction.organisation ]
-            ++ (List.map tagToString interaction.tags)
+            ++ [ interaction.tags ]
 
 
 containsSearchInput : String -> String -> Bool

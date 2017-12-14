@@ -24,7 +24,7 @@ previousDetailPage model =
     in
         div [ class "interactionDetailsImage w-100 center brand tc" ]
             [ div [ class "w-100 h4 bg-white bb b--black-10 v-mid flex" ]
-                [ a [ href "#" ] [ img [ class "pa3 h2", src "./assets/png's/icon.png" ] [] ]
+                [ a [ href "#" ] [ img [ class "pa3 h2", src "./assets/png/icon.png" ] [] ]
                 , h2 [ class "blue center pt2" ] [ text model.liveInteraction.name ]
                 ]
             , div [ class "w-100 center ma0 pa0" ]
