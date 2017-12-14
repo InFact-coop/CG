@@ -235,3 +235,8 @@ button {
   border-bottom : solid 2px var(--light-blue);
   border-radius: 0px;
 }
+
+.button-transparent{
+  background-color: transparent;
+  border: none;
+}
