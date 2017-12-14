@@ -17,17 +17,19 @@ init =
         ( datePicker, datePickerCmd ) =
             DatePicker.init
     in
-        ( { route = HomeRoute
-          , currentInteraction = Interaction Nothing "" "" "" "" (Notes "" "") "" [] Nothing CurrentMemberNotSet
-          , recordedInteractions = listRecordedInteractions
-          , notesPage = Choose
-          , isRecording = False
-          , datePicker = datePicker
-          , liveInteraction = Interaction Nothing "" "" "" "" (Notes "" "") "" [] Nothing CurrentMemberNotSet
-          , searchInput = ""
-          }
-        , Cmd.batch [ Task.perform ReceiveDate Date.now, Cmd.map SetDatePicker datePickerCmd ]
-        )
+    ( { route = HomeRoute
+      , currentInteraction = Interaction Nothing "" "" "" "" (Notes "" "") "" [] Nothing CurrentMemberNotSet
+      , recordedInteractions = listRecordedInteractions
+      , notesPage = Choose
+      , isRecording = False
+      , datePicker = datePicker
+      , liveInteraction = Interaction Nothing "" "" "" "" (Notes "" "") "" [] Nothing CurrentMemberNotSet
+      , searchInput = ""
+      , detailsPage = ChooseDeets
+      , newRecommend = Recommendation "" ""
+      }
+    , Cmd.batch [ Task.perform ReceiveDate Date.now, Cmd.map SetDatePicker datePickerCmd ]
+    )
 
 
 listRecordedInteractions : List Interaction
@@ -89,7 +91,7 @@ update msg model =
                 newInteraction =
                     { interaction | name = input }
             in
-                ( { model | currentInteraction = newInteraction }, Cmd.none )
+            ( { model | currentInteraction = newInteraction }, Cmd.none )
 
         ChangeNotes view ->
             ( { model | notesPage = view }, Cmd.none )
@@ -108,7 +110,7 @@ update msg model =
                 newInteraction =
                     { interaction | notes = newNotes }
             in
-                ( { model | currentInteraction = newInteraction }, Cmd.none )
+            ( { model | currentInteraction = newInteraction }, Cmd.none )
 
         RequestDate ->
             ( model, Task.perform ReceiveDate Date.now )
@@ -121,7 +123,7 @@ update msg model =
                 newInteraction =
                     { interaction | interactionDate = Just date }
             in
-                ( { model | currentInteraction = newInteraction }, Cmd.none )
+            ( { model | currentInteraction = newInteraction }, Cmd.none )
 
         SetDatePicker msg ->
             let
@@ -142,18 +144,18 @@ update msg model =
                 newInteraction =
                     { interaction | interactionDate = date }
             in
-                { model
-                    | currentInteraction = newInteraction
-                    , datePicker = newDatePicker
-                }
-                    ! [ Cmd.map SetDatePicker datePickerCmd ]
+            { model
+                | currentInteraction = newInteraction
+                , datePicker = newDatePicker
+            }
+                ! [ Cmd.map SetDatePicker datePickerCmd ]
 
         SelectInteractionItem currentInteraction ->
             let
                 command =
                     Navigation.newUrl "#previousDetail"
             in
-                ( { model | liveInteraction = currentInteraction }, command )
+            ( { model | liveInteraction = currentInteraction }, command )
 
         SetContactEmail input ->
             let
@@ -163,7 +165,7 @@ update msg model =
                 newInteraction =
                     { interaction | email = input }
             in
-                ( { model | currentInteraction = newInteraction }, Cmd.none )
+            ( { model | currentInteraction = newInteraction }, Cmd.none )
 
         SetContactPhone input ->
             let
@@ -173,7 +175,7 @@ update msg model =
                 newInteraction =
                     { interaction | phone = input }
             in
-                ( { model | currentInteraction = newInteraction }, Cmd.none )
+            ( { model | currentInteraction = newInteraction }, Cmd.none )
 
         SetContactOrganisation input ->
             let
@@ -183,7 +185,7 @@ update msg model =
                 newInteraction =
                     { interaction | organisation = input }
             in
-                ( { model | currentInteraction = newInteraction }, Cmd.none )
+            ( { model | currentInteraction = newInteraction }, Cmd.none )
 
         GoBack ->
             ( model, Navigation.back 1 )
@@ -201,7 +203,7 @@ update msg model =
                         newInteraction =
                             { interaction | currentMember = CurrentMemberYes }
                     in
-                        ( { model | currentInteraction = newInteraction }, Cmd.none )
+                    ( { model | currentInteraction = newInteraction }, Cmd.none )
 
                 CurrentMemberNo ->
                     let
@@ -211,7 +213,7 @@ update msg model =
                         newInteraction =
                             { interaction | currentMember = CurrentMemberNo }
                     in
-                        ( { model | currentInteraction = newInteraction }, Cmd.none )
+                    ( { model | currentInteraction = newInteraction }, Cmd.none )
 
                 _ ->
                     ( model, Cmd.none )
@@ -236,7 +238,7 @@ update msg model =
                 newInteraction =
                     { interaction | notes = newNotes }
             in
-                ( { model | currentInteraction = newInteraction }, Cmd.none )
+            ( { model | currentInteraction = newInteraction }, Cmd.none )
 
         PlayAudio whichever ->
             ( model, playStart whichever )
@@ -255,7 +257,7 @@ update msg model =
                 newInteraction =
                     { interaction | notes = newNotes }
             in
-                ( { model | currentInteraction = newInteraction }, Cmd.none )
+            ( { model | currentInteraction = newInteraction }, Cmd.none )
 
         UpdateTags tag ->
             let
@@ -265,4 +267,34 @@ update msg model =
                 newInteraction =
                     { interaction | tags = tag }
             in
-                ( { model | currentInteraction = newInteraction }, Cmd.none )
+            ( { model | currentInteraction = newInteraction }, Cmd.none )
+
+        ChangeDetails view ->
+            ( { model | detailsPage = view }, Cmd.none )
+
+        SetNewRecName name ->
+            ( { model
+                | newRecommend =
+                    model.newRecommend
+                        |> (\nr -> { nr | name = name })
+              }
+            , Cmd.none
+            )
+
+        SetNewRecOrg organisation ->
+            ( { model
+                | newRecommend =
+                    model.newRecommend
+                        |> (\nr -> { nr | organisation = organisation })
+              }
+            , Cmd.none
+            )
+
+        AddRecommendations reccomendation ->
+            ( { model
+                | currentInteraction =
+                    model.currentInteraction
+                        |> (\ci -> { ci | recommendations = reccomendation :: ci.recommendations })
+              }
+            , Cmd.none
+            )

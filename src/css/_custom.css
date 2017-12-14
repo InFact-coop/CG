@@ -160,9 +160,22 @@ button {
   background-position: center;
 }
 
+<<<<<<< HEAD
+||||||| merged common ancestors
 
+
+=======
+
+>>>>>>> master
 /*rebe's changes
 /**/
+<<<<<<< HEAD
+.interactionDetailsImage {
+  background: url('./assets/png/record_bg.png') no-repeat;
+||||||| merged common ancestors
+.interactionDetailsImage{
+  background: url("./assets/png/record_bg.png") no-repeat;
+=======
 
 .imageInteractionItem {
   background: url("./assets/png/homepage_logo.png") no-repeat;
@@ -207,6 +220,26 @@ button {
   background-image: url('./assets/png/record_bg.png');
   background-repeat: no-repeat;
   background-size: cover;
+}
+<<<<<<< HEAD
+
+.z-neg1 {
+  z-index: -1;
+}
+
+.grow {
+  -webkit-animation: grow 0.1s;
+}
+
+@-webkit-keyframes grow {
+  0% {
+    transform: scale(0, 0);
+    /*translate(16rem);*/
+  }
+  100% {
+    transform: scale(1, 1);
+    /*translate(0rem);*/
+  }
 }
 
 .button-border {
