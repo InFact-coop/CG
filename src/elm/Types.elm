@@ -138,3 +138,4 @@ type Msg
     | Shared4
     | Shared5
     | SetDatePickerF DatePicker.Msg
+    | AddInteraction

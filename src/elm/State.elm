@@ -25,7 +25,7 @@ init =
       , datePicker = datePicker
       , liveInteraction = Interaction Nothing "" "" "" "" (Notes "" "") "" [] Nothing CurrentMemberNotSet
       , searchInput = ""
-      , detailsPage = Share
+      , detailsPage = ChooseDeets
       , newRecommend = Recommendation "" ""
       , shared1 = False
       , shared2 = False
@@ -300,6 +300,7 @@ update msg model =
                 | currentInteraction =
                     model.currentInteraction
                         |> (\ci -> { ci | recommendations = reccomendation :: ci.recommendations })
+                , detailsPage = ChooseDeets
               }
             , Cmd.none
             )
@@ -343,3 +344,16 @@ update msg model =
                 , datePicker = newDatePicker
             }
                 ! [ Cmd.map SetDatePickerF datePickerCmd ]
+
+        AddInteraction ->
+            let
+                command =
+                    Navigation.newUrl "#previousDetail"
+
+                resetInt =
+                    Interaction Nothing "" "" "" "" (Notes "" "") "" [] Nothing CurrentMemberNotSet
+
+                updateList =
+                    model.currentInteraction :: model.recordedInteractions
+            in
+            ( { model | recordedInteractions = updateList, liveInteraction = model.currentInteraction, currentInteraction = resetInt }, command )
