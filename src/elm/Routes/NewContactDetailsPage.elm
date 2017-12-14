@@ -1,10 +1,11 @@
 module Routes.NewContactDetailsPage exposing (..)
 
+import Components.TitleBar exposing (..)
+import DatePicker
 import Html exposing (..)
 import Html.Attributes exposing (..)
 import Html.Events exposing (..)
 import Types exposing (..)
-import Components.TitleBar exposing (..)
 
 
 newContactDetailsPage : Model -> Html Msg
@@ -15,6 +16,15 @@ newContactDetailsPage model =
         , formItem "assets/svg_icons/email.svg" "Email" model.currentInteraction.email SetContactEmail
         , formItem "assets/svg_icons/phone.svg" "Phone" model.currentInteraction.phone SetContactPhone
         , formItem "assets/svg_icons/company.svg" "Organisation" model.currentInteraction.organisation SetContactOrganisation
+        , div [ class "" ]
+            [ div [ class "tc" ]
+                [ DatePicker.view
+                    model.currentInteraction.interactionDate
+                    DatePicker.defaultSettings
+                    model.datePicker
+                    |> Html.map SetDatePicker
+                ]
+            ]
         , div [ class "w-80 center" ]
             [ p [ class "blue" ] [ text "Are you a member of Create Glost already?" ]
             , buttonItem model.currentInteraction.currentMember CurrentMemberYes "Yeah"
@@ -28,7 +38,7 @@ newContactDetailsPage model =
 formItem : String -> String -> String -> (String -> Msg) -> Html Msg
 formItem imgSrc fieldName val msg =
     div []
-        [ div [ class "bb b--blue bw1 w-80 center flex items-center pb2 mb5" ]
+        [ div [ class "bb b--blue bw1 w-80 center flex items-center pb2 mb2" ]
             [ img [ src imgSrc, class "h2 w2" ] []
             , label [ class "dib tr lh-copy light-blue f4 mh3" ] [ text fieldName ]
             , input
@@ -50,7 +60,4 @@ buttonItem currentMemberUTFromModel buttonClicked textValue =
 
 checkboxMember : CurrentMemberOptions -> CurrentMemberOptions -> Bool
 checkboxMember buttonClicked currentMemberUTFromModel =
-    if buttonClicked == currentMemberUTFromModel then
-        True
-    else
-        False
+    buttonClicked == currentMemberUTFromModel

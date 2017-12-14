@@ -19,9 +19,8 @@ button {
 
 .elm-datepicker--input {
   text-align: center;
-  font-size: 2rem;
   color: var(--blue);
-  display: inline-block;
+  font-size: 2rem;
 }
 
 .elm-datepicker--input:focus {
@@ -36,7 +35,8 @@ button {
   background: #ffffff;
 }
 
-.elm-datepicker--picker-header, .elm-datepicker--weekdays {
+.elm-datepicker--picker-header,
+.elm-datepicker--weekdays {
   background: #f2f2f2;
 }
 
@@ -45,7 +45,8 @@ button {
   align-items: center;
 }
 
-.elm-datepicker--prev-container, .elm-datepicker--next-container {
+.elm-datepicker--prev-container,
+.elm-datepicker--next-container {
   flex: 0 1 auto;
 }
 
@@ -56,7 +57,8 @@ button {
   flex-direction: column;
 }
 
-.elm-datepicker--month, .elm-datepicker--year {
+.elm-datepicker--month,
+.elm-datepicker--year {
   flex: 1 1 auto;
   cursor: default;
   text-align: center;
@@ -67,7 +69,8 @@ button {
   font-weight: 700;
 }
 
-.elm-datepicker--prev, .elm-datepicker--next {
+.elm-datepicker--prev,
+.elm-datepicker--next {
   border: 6px solid transparent;
   display: block;
   width: 0;
@@ -162,10 +165,12 @@ button {
 
 /*rebe's changes
 /**/
-
+.interactionDetailsImage {
+  background: url('./assets/png/record_bg.png') no-repeat;
+}
 
 .imageInteractionItem {
-  background: url("./assets/png/homepage_logo.png") no-repeat;
+  background: url('./assets/png/homepage_logo.png') no-repeat;
   background-position: center top;
   background-size: 300%;
   z-index: -1;
@@ -173,11 +178,10 @@ button {
 
 .interactionItem {
   background-color: #ffffffcf;
-
 }
 
 .interactionDetailsImage {
-  background: url("./assets/png/record_bg.png") no-repeat;
+  background: url('./assets/png/record_bg.png') no-repeat;
   background-size: cover;
   z-index: -1;
 }
@@ -190,7 +194,6 @@ button {
   border: solid 2px var(--blue);
   border-radius: 0.25rem;
 }
-
 
 /*finish*/
 
@@ -210,16 +213,15 @@ button {
   background-size: cover;
 }
 
-
 .z-neg1 {
   z-index: -1;
 }
 
-.grow {
-  -webkit-animation: grow 0.1s;
+.grows {
+  -webkit-animation: grows 0.1s;
 }
 
-@-webkit-keyframes grow {
+@-webkit-keyframes grows {
   0% {
     transform: scale(0, 0);
     /*translate(16rem);*/
@@ -232,11 +234,11 @@ button {
 
 .button-border {
   border: none;
-  border-bottom : solid 2px var(--light-blue);
+  border-bottom: solid 2px var(--light-blue);
   border-radius: 0px;
 }
 
-.button-transparent{
+.button-transparent {
   background-color: transparent;
   border: none;
 }
