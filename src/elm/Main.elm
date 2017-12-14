@@ -1,20 +1,20 @@
 module Main exposing (..)
 
-import Navigation
-
-
 -- My Elm Files
 
+import DatePicker
+import Navigation
 import State exposing (..)
-import View exposing (..)
+import Subscriptions exposing (..)
 import Types exposing (..)
+import View exposing (..)
 
 
 main : Program Never Model Msg
 main =
     Navigation.program UrlChange
-        { init = always ( initModel, Cmd.none )
+        { init = always init
         , view = view
         , update = update
-        , subscriptions = always Sub.none
+        , subscriptions = subscriptions
         }
