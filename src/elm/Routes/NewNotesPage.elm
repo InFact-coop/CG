@@ -24,7 +24,7 @@ newNotesPage model =
     in
         div [ class "blue center" ]
             [ div [ class "bg-record vh-100" ]
-                [ titleBar "What happened?"
+                [ titleBar False "What happened?"
                 , div [ class "vh-50 mb5" ] [ viewChoice ]
                 , div [ class "tc mt5 pt5" ]
                     [ div [ class "tc" ]
