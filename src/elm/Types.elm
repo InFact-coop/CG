@@ -26,6 +26,8 @@ type alias Model =
     , recordedInteractions : List Interaction
     , notesPage : NoteState
     , isRecording : Bool
+    , liveInteraction : Interaction
+    , searchInput : String
     , datePicker : DatePicker.DatePicker
     }
 
@@ -74,6 +76,19 @@ type Tags
     | Event
 
 
+tagToString : Tags -> String
+tagToString tags =
+    case tags of
+        Artist ->
+            "Artist"
+
+        CGmember ->
+            "CGmember"
+
+        Event ->
+            "Event"
+
+
 
 -- Update
 
@@ -81,6 +96,8 @@ type Tags
 type Msg
     = UrlChange Navigation.Location
     | SetContactName String
+    | SelectInteractionItem Interaction
+    | SetSearchInput String
     | SetContactEmail String
     | SetContactPhone String
     | SetContactOrganisation String
