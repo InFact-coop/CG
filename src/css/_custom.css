@@ -208,3 +208,9 @@ button {
   background-repeat: no-repeat;
   background-size: cover;
 }
+
+.button-border {
+  border: none;
+  border-bottom : solid 2px var(--light-blue);
+  border-radius: 0px;
+}
