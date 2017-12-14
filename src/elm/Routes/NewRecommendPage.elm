@@ -16,13 +16,13 @@ newRecommendPage model =
                     div [] []
 
                 Recommendations ->
-                    recommendationsView model
+                    viewMaker model recommendationsView
 
                 FollowUp ->
-                    followUpView model
+                    viewMaker model followUpView
 
                 Share ->
-                    shareView model
+                    viewMaker model shareView
     in
     div [ class "w-60-ns center" ]
         [ titleBar "Add some detail..."
@@ -50,37 +50,25 @@ buttonMaker imgSrc message newView =
         ]
 
 
-recommendationsView : Model -> Html Msg
-recommendationsView model =
+viewMaker : Model -> Html Msg -> Html Msg
+viewMaker model filler =
     div [ class "fixed bottom-0 left-0 vh-100 w-100 pt5" ]
         [ div [ class "ba b--blue bw2 br3 bg-white-90 z-999 w-90 vh-75 pa0 ma0 center mt5 grow" ]
             [ button [ class "link ma2 relative top-0 left-0", onClick <| ChangeDetails ChooseDeets ]
                 [ img [ src "./assets/svg_icons/remove.svg" ] []
                 ]
-            , div [ class "tc" ] [ text "recs" ]
+            , filler
             ]
         ]
 
 
-followUpView : Model -> Html Msg
-followUpView model =
-    div [ class "fixed bottom-0 left-0 vh-100 w-100 pt5" ]
-        [ div [ class "ba b--blue bw2 br3 bg-white-90 z-999 w-90 vh-75 pa0 ma0 center mt5 grow" ]
-            [ button [ class "link ma2 relative top-0 left-0", onClick <| ChangeDetails ChooseDeets ]
-                [ img [ src "./assets/svg_icons/remove.svg" ] []
-                ]
-            , div [ class "tc" ] [ text "follow" ]
-            ]
-        ]
+recommendationsView =
+    div [ class "tc" ] [ text "rec" ]
 
 
-shareView : Model -> Html Msg
-shareView model =
-    div [ class "fixed bottom-0 left-0 vh-100 w-100 pt5" ]
-        [ div [ class "ba b--blue bw2 br3 bg-white-90 z-999 w-90 vh-75 pa0 ma0 center mt5 grow" ]
-            [ button [ class "link ma2 relative top-0 left-0", onClick <| ChangeDetails ChooseDeets ]
-                [ img [ src "./assets/svg_icons/remove.svg" ] []
-                ]
-            , div [ class "tc" ] [ text "share" ]
-            ]
-        ]
+followUpView =
+    div [ class "tc" ] [ text "follow" ]
+
+
+shareView =
+    div [ class "tc" ] [ text "share" ]
