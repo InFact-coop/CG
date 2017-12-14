@@ -48,7 +48,14 @@ type alias Interaction =
     , tags : String
     , recommendations : List Recommendation
     , followUpDate : Maybe Date
+    , currentMember : CurrentMemberOptions
     }
+
+
+type CurrentMemberOptions
+    = CurrentMemberNotSet
+    | CurrentMemberYes
+    | CurrentMemberNo
 
 
 type alias Recommendation =
@@ -90,8 +97,12 @@ type Msg
     = UrlChange Navigation.Location
     | SetContactName String
     | SelectInteractionItem Interaction
-    | GoBack
     | SetSearchInput String
+    | SetContactEmail String
+    | SetContactPhone String
+    | SetContactOrganisation String
+    | GoBack
+    | SetCurrentContact CurrentMemberOptions
     | ChangeNotes NoteState
     | UpdateTextNote String
     | RequestDate
