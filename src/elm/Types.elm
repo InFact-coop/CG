@@ -1,6 +1,7 @@
 module Types exposing (..)
 
 import Date exposing (..)
+import DatePicker
 import Navigation
 
 
@@ -27,6 +28,7 @@ type alias Model =
     , isRecording : Bool
     , liveInteraction : Interaction
     , searchInput : String
+    , datePicker : DatePicker.DatePicker
     }
 
 
@@ -37,12 +39,13 @@ type NoteState
 
 
 type alias Interaction =
-    { name : String
+    { interactionDate : Maybe Date
+    , name : String
     , organisation : String
     , email : String
     , phone : String
     , notes : Notes
-    , tags : List Tags
+    , tags : String
     , recommendations : List Recommendation
     , followUpDate : Maybe Date
     }
@@ -89,3 +92,15 @@ type Msg
     | SelectInteractionItem Interaction
     | GoBack
     | SetSearchInput String
+    | ChangeNotes NoteState
+    | UpdateTextNote String
+    | RequestDate
+    | ReceiveDate Date
+    | SetDatePicker DatePicker.Msg
+    | GoBack
+    | StartRecording
+    | StopRecording
+    | RecieveAudio String
+    | PlayAudio Bool
+    | ReRecord
+    | UpdateTags String
