@@ -10,7 +10,7 @@ import Components.TitleBar exposing (..)
 newContactDetailsPage : Model -> Html Msg
 newContactDetailsPage model =
     div [ class "w-60-ns center" ]
-        [ titleBar "I just met"
+        [ titleBar True "I just met"
         , formItem "assets/svg_icons/profile.svg" "Name" model.currentInteraction.name SetContactName
         , formItem "assets/svg_icons/email.svg" "Email" model.currentInteraction.email SetContactEmail
         , formItem "assets/svg_icons/phone.svg" "Phone" model.currentInteraction.phone SetContactPhone
