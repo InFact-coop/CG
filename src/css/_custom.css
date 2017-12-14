@@ -221,17 +221,16 @@ button {
   background-repeat: no-repeat;
   background-size: cover;
 }
-<<<<<<< HEAD
 
 .z-neg1 {
   z-index: -1;
 }
 
-.grow {
-  -webkit-animation: grow 0.1s;
+.grows {
+  -webkit-animation: grows 0.1s;
 }
 
-@-webkit-keyframes grow {
+@-webkit-keyframes grows {
   0% {
     transform: scale(0, 0);
     /*translate(16rem);*/
@@ -244,6 +243,6 @@ button {
 
 .button-border {
   border: none;
-  border-bottom : solid 2px var(--light-blue);
+  border-bottom: solid 2px var(--light-blue);
   border-radius: 0px;
 }

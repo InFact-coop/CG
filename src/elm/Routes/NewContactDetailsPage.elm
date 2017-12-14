@@ -1,10 +1,10 @@
 module Routes.NewContactDetailsPage exposing (..)
 
+import Components.TitleBar exposing (..)
 import Html exposing (..)
 import Html.Attributes exposing (..)
 import Html.Events exposing (..)
 import Types exposing (..)
-import Components.TitleBar exposing (..)
 
 
 newContactDetailsPage : Model -> Html Msg
@@ -50,7 +50,4 @@ buttonItem currentMemberUTFromModel buttonClicked textValue =
 
 checkboxMember : CurrentMemberOptions -> CurrentMemberOptions -> Bool
 checkboxMember buttonClicked currentMemberUTFromModel =
-    if buttonClicked == currentMemberUTFromModel then
-        True
-    else
-        False
+    buttonClicked == currentMemberUTFromModel

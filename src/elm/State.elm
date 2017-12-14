@@ -25,8 +25,13 @@ init =
       , datePicker = datePicker
       , liveInteraction = Interaction Nothing "" "" "" "" (Notes "" "") "" [] Nothing CurrentMemberNotSet
       , searchInput = ""
-      , detailsPage = ChooseDeets
+      , detailsPage = Share
       , newRecommend = Recommendation "" ""
+      , shared1 = False
+      , shared2 = False
+      , shared3 = False
+      , shared4 = False
+      , shared5 = False
       }
     , Cmd.batch [ Task.perform ReceiveDate Date.now, Cmd.map SetDatePicker datePickerCmd ]
     )
@@ -298,3 +303,18 @@ update msg model =
               }
             , Cmd.none
             )
+
+        Shared1 ->
+            ( { model | shared1 = not model.shared1 }, Cmd.none )
+
+        Shared2 ->
+            ( { model | shared2 = not model.shared2 }, Cmd.none )
+
+        Shared3 ->
+            ( { model | shared3 = not model.shared3 }, Cmd.none )
+
+        Shared4 ->
+            ( { model | shared4 = not model.shared4 }, Cmd.none )
+
+        Shared5 ->
+            ( { model | shared5 = not model.shared5 }, Cmd.none )

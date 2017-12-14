@@ -31,6 +31,11 @@ type alias Model =
     , datePicker : DatePicker.DatePicker
     , detailsPage : DetailsState
     , newRecommend : Recommendation
+    , shared1 : Bool
+    , shared2 : Bool
+    , shared3 : Bool
+    , shared4 : Bool
+    , shared5 : Bool
     }
 
 
@@ -127,3 +132,8 @@ type Msg
     | SetNewRecName String
     | SetNewRecOrg String
     | AddRecommendations Recommendation
+    | Shared1
+    | Shared2
+    | Shared3
+    | Shared4
+    | Shared5
