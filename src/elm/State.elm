@@ -35,10 +35,10 @@ init =
 listRecordedInteractions : List Interaction
 listRecordedInteractions =
     [ Interaction Nothing "Alexa Vega" "PHS Limited" "alexavega@gmail.com" "+447598772611" (Notes "A grafitti artist from Stroud that is looking for work" "") "Artist" [] Nothing CurrentMemberNotSet
-    , Interaction Nothing "Daryl Sabara" "Cortez Ltd" "darylsabara@cortez.com" "+447532172611" (Notes "school teacher looking for a grafitti artist" "") "Event" [] Nothing CurrentMemberNotSet
+    , Interaction Nothing "Daryl Sabara" "Cortez Ltd" "darylsabara@cortez.com" "+447532172611" (Notes "school teacher looking for a grafitti artist" "") "Fine Arts" [] Nothing CurrentMemberNotSet
     , Interaction Nothing "Antonio Banderas" "Cargo S.L." "banderas@cargo.com" "+447598772987" (Notes "school teacher looking for a grafitti artist" "") "Event" [] Nothing CurrentMemberNotSet
-    , Interaction Nothing "Carla Gugino" "Organisation" "darylsabara@cortez.com" "+447532172611" (Notes "school teacher looking for a grafitti artist" "") "Event" [] Nothing CurrentMemberNotSet
-    , Interaction Nothing "Antonio Banderas" "Cargo S.L." "banderas@cargo.com" "+447598772987" (Notes "school teacher looking for a grafitti artist" "") "Event" [] Nothing CurrentMemberNotSet
+    , Interaction Nothing "Carla Gugino" "Organisation" "darylsabara@cortez.com" "+447532172611" (Notes "school teacher looking for a grafitti artist" "") "Community" [] Nothing CurrentMemberNotSet
+    , Interaction Nothing "Antonio Banderas" "Cargo S.L." "banderas@cargo.com" "+447598772987" (Notes "school teacher looking for a grafitti artist" "") "New Media" [] Nothing CurrentMemberNotSet
     ]
 
 
