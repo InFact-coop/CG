@@ -20,6 +20,7 @@ button {
 .elm-datepicker--input {
   text-align: center;
   color: var(--blue);
+  font-size: 2rem;
 }
 
 .elm-datepicker--input:focus {
@@ -182,6 +183,7 @@ button {
 .interactionDetailsImage {
   background: url('./assets/png/record_bg.png') no-repeat;
   background-size: cover;
+  z-index: -1;
 }
 
 .h6 {
@@ -234,4 +236,9 @@ button {
   border: none;
   border-bottom: solid 2px var(--light-blue);
   border-radius: 0px;
+}
+
+.button-transparent {
+  background-color: transparent;
+  border: none;
 }

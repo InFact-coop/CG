@@ -26,11 +26,14 @@ newRecommendPage model =
                     viewMaker (shareView model)
     in
     div [ class "w-60-ns center" ]
-        [ titleBar True "Add some detail..."
-        , chooseView
-        , viewChoice
-        , section [ class "pa4 flex justify-center" ]
-            [ a [ class "b-blue ba link blue tc ma0 mt2 pt2 center bg-white h3 w-100 b br3 f3", onClick AddInteraction ] [ text "Finished" ]
+        [ div
+            [ class "bg-record vh-100" ]
+            [ titleBar True "Add some detail..."
+            , chooseView
+            , viewChoice
+            , section [ class "pa4 flex justify-center" ]
+                [ a [ class "b-blue ba link blue tc ma0 mt2 pt2 center bg-white h3 w-100 b br3 f3", onClick AddInteraction ] [ text "Finished" ]
+                ]
             ]
         ]
 
