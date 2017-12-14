@@ -30,6 +30,7 @@ type alias Model =
     , searchInput : String
     , datePicker : DatePicker.DatePicker
     , detailsPage : DetailsState
+    , newRecommend : Recommendation
     }
 
 
@@ -123,3 +124,6 @@ type Msg
     | ReRecord
     | UpdateTags String
     | ChangeDetails DetailsState
+    | SetNewRecName String
+    | SetNewRecOrg String
+    | AddRecommendations Recommendation

@@ -26,6 +26,7 @@ init =
       , liveInteraction = Interaction Nothing "" "" "" "" (Notes "" "") "" [] Nothing CurrentMemberNotSet
       , searchInput = ""
       , detailsPage = ChooseDeets
+      , newRecommend = Recommendation "" ""
       }
     , Cmd.batch [ Task.perform ReceiveDate Date.now, Cmd.map SetDatePicker datePickerCmd ]
     )
@@ -270,3 +271,30 @@ update msg model =
 
         ChangeDetails view ->
             ( { model | detailsPage = view }, Cmd.none )
+
+        SetNewRecName name ->
+            ( { model
+                | newRecommend =
+                    model.newRecommend
+                        |> (\nr -> { nr | name = name })
+              }
+            , Cmd.none
+            )
+
+        SetNewRecOrg organisation ->
+            ( { model
+                | newRecommend =
+                    model.newRecommend
+                        |> (\nr -> { nr | organisation = organisation })
+              }
+            , Cmd.none
+            )
+
+        AddRecommendations reccomendation ->
+            ( { model
+                | currentInteraction =
+                    model.currentInteraction
+                        |> (\ci -> { ci | recommendations = reccomendation :: ci.recommendations })
+              }
+            , Cmd.none
+            )
