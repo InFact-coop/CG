@@ -23,6 +23,7 @@ button {
   color: var(--blue);
   display: inline-block;
 }
+
 .elm-datepicker--input:focus {
   outline: 0;
   color: var(--blue);
@@ -35,8 +36,7 @@ button {
   background: #ffffff;
 }
 
-.elm-datepicker--picker-header,
-.elm-datepicker--weekdays {
+.elm-datepicker--picker-header, .elm-datepicker--weekdays {
   background: #f2f2f2;
 }
 
@@ -45,8 +45,7 @@ button {
   align-items: center;
 }
 
-.elm-datepicker--prev-container,
-.elm-datepicker--next-container {
+.elm-datepicker--prev-container, .elm-datepicker--next-container {
   flex: 0 1 auto;
 }
 
@@ -57,8 +56,7 @@ button {
   flex-direction: column;
 }
 
-.elm-datepicker--month,
-.elm-datepicker--year {
+.elm-datepicker--month, .elm-datepicker--year {
   flex: 1 1 auto;
   cursor: default;
   text-align: center;
@@ -69,8 +67,7 @@ button {
   font-weight: 700;
 }
 
-.elm-datepicker--prev,
-.elm-datepicker--next {
+.elm-datepicker--prev, .elm-datepicker--next {
   border: 6px solid transparent;
   display: block;
   width: 0;
@@ -81,6 +78,7 @@ button {
 .elm-datepicker--prev {
   border-right-color: #aaa;
 }
+
 .elm-datepicker--prev:hover {
   border-right-color: #bbb;
 }
@@ -88,6 +86,7 @@ button {
 .elm-datepicker--next {
   border-left-color: #aaa;
 }
+
 .elm-datepicker--next:hover {
   border-left-color: #bbb;
 }
@@ -97,6 +96,7 @@ button {
   border-collapse: collapse;
   font-size: 0.8em;
 }
+
 .elm-datepicker--table td {
   width: 2em;
   height: 2em;
@@ -115,6 +115,7 @@ button {
 .elm-datepicker--day {
   cursor: pointer;
 }
+
 .elm-datepicker--day:hover {
   background: #f2f2f2;
 }
@@ -123,6 +124,7 @@ button {
   cursor: default;
   color: #ddd;
 }
+
 .elm-datepicker--disabled:hover {
   background: inherit;
 }
@@ -131,6 +133,7 @@ button {
   color: white;
   background: darkblue;
 }
+
 .elm-datepicker--picked:hover {
   background: darkblue;
 }
@@ -142,9 +145,11 @@ button {
 .elm-datepicker--other-month {
   color: #aaa;
 }
+
 .elm-datepicker--other-month.elm-datepicker--disabled {
   color: #eee;
 }
+
 .elm-datepicker--other-month.elm-datepicker--picked {
   color: white;
 }
@@ -156,24 +161,36 @@ button {
 }
 
 
-
 /*rebe's changes
 /**/
-.interactionDetailsImage{
-  background: url("./assets/png/record_bg.png") no-repeat;
-  background-size: cover;
-  /*height: 100vh;*/
+
+.imageInteractionItem {
+  background: url("./assets/png/homepage_logo.png") no-repeat;
+  background-position: center top;
+  background-size: 300%;
+  z-index: -1;
+}
+
+.interactionItem {
+  background-color: #ffffffcf;
 
 }
 
+.interactionDetailsImage {
+  background: url("./assets/png/record_bg.png") no-repeat;
+  background-size: cover;
+}
+
 .h6 {
-  height:25rem;
+  height: 25rem;
 }
 
 .b-input {
   border: solid 2px var(--blue);
   border-radius: 0.25rem;
 }
+
+
 /*finish*/
 
 .flash {

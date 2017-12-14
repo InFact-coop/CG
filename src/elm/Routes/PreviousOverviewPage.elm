@@ -13,7 +13,7 @@ previousOverviewPage model =
         , p [ class "blue center db tc" ] [ text "search by name, tags or organisation" ]
         , input [ class "center db b-input pa2 ma2", onInput SetSearchInput, value model.searchInput, placeholder "search" ] []
         , section
-            []
+            [ class "center absolute imageInteractionItem" ]
             (interactionContent
                 model
             )
@@ -22,12 +22,12 @@ previousOverviewPage model =
 
 interactionItem : Interaction -> Html Msg
 interactionItem interaction =
-    button [ class "w-100", onClick <| SelectInteractionItem interaction ]
-        [ div [ class "h4" ]
-            [ li [ class "db bb bw2 b--black-10 ma4" ]
-                [ h1 [] [ text interaction.organisation ]
-                , p [ class "" ] [ text interaction.name ]
-                , div [] [ text interaction.notes.text ]
+    button [ class "w-100 interactionItem", onClick <| SelectInteractionItem interaction ]
+        [ div [ class "" ]
+            [ li [ class "db  bw2 b--blue-10" ]
+                [ h1 [ class " b blue" ] [ text interaction.organisation ]
+                , p [ class " b blue " ] [ text interaction.name ]
+                , div [ class "b blue " ] [ text interaction.notes.text ]
                 , div [ class "ma2" ]
                     [ img [ src "./assets/svg_icons/email.svg", class "" ] []
                     , img [ src "./assets/svg_icons/phone.svg", class "" ] []
