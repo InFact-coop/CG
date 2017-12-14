@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Elm Boilerplate</title>
+  <title>Create Gloucestershire</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -15,8 +15,14 @@
 
 <body>
   <script>
-  Elm.Main.fullscreen()
-</script>
+  var app = Elm.Main.fullscreen()
+  </script>
+  <script type="text/javascript" src="audioMessages.js"></script>
+  <script type="text/javascript">
+    app.ports.playStart.subscribe(function(startorstop){
+      startorstop? document.getElementById("audio").play() : document.getElementById("audio").pause()
+    })
+  </script>
 </body>
 
 </html>

@@ -49,6 +49,5 @@ view model =
                     notFoundPage model
     in
     div []
-        [ navbar model
-        , page
+        [ page
         ]
