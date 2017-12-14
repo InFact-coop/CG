@@ -25,6 +25,7 @@ init =
       , datePicker = datePicker
       , liveInteraction = Interaction Nothing "" "" "" "" (Notes "" "") "" [] Nothing CurrentMemberNotSet
       , searchInput = ""
+      , detailsPage = ChooseDeets
       }
     , Cmd.batch [ Task.perform ReceiveDate Date.now, Cmd.map SetDatePicker datePickerCmd ]
     )
@@ -266,3 +267,6 @@ update msg model =
                     { interaction | tags = tag }
             in
             ( { model | currentInteraction = newInteraction }, Cmd.none )
+
+        ChangeDetails view ->
+            ( { model | detailsPage = view }, Cmd.none )

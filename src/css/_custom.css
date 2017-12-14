@@ -155,19 +155,16 @@ button {
   background-position: center;
 }
 
-
-
 /*rebe's changes
 /**/
-.interactionDetailsImage{
-  background: url("./assets/png/record_bg.png") no-repeat;
+.interactionDetailsImage {
+  background: url('./assets/png/record_bg.png') no-repeat;
   background-size: cover;
   /*height: 100vh;*/
-
 }
 
 .h6 {
-  height:25rem;
+  height: 25rem;
 }
 
 .b-input {
@@ -190,4 +187,23 @@ button {
   background-image: url('./assets/png/record_bg.png');
   background-repeat: no-repeat;
   background-size: cover;
+}
+
+.z-neg1 {
+  z-index: -1;
+}
+
+.grow {
+  -webkit-animation: grow 0.1s;
+}
+
+@-webkit-keyframes grow {
+  0% {
+    transform: scale(0, 0);
+    /*translate(16rem);*/
+  }
+  100% {
+    transform: scale(1, 1);
+    /*translate(0rem);*/
+  }
 }

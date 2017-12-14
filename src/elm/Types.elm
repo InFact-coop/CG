@@ -11,8 +11,8 @@ import Navigation
 type Route
     = HomeRoute
     | NewContactDetailsRoute
-    | NewNotesRoute --| with date
-    | NewRecommendRoute --| with tags
+    | NewNotesRoute
+    | NewRecommendRoute
     | NewShareRoute --| with follow up date
     | NewThankYouRoute
     | PreviousInteractionsOverviewRoute
@@ -29,6 +29,7 @@ type alias Model =
     , liveInteraction : Interaction
     , searchInput : String
     , datePicker : DatePicker.DatePicker
+    , detailsPage : DetailsState
     }
 
 
@@ -36,6 +37,13 @@ type NoteState
     = Choose
     | Text
     | Audio
+
+
+type DetailsState
+    = ChooseDeets
+    | Recommendations
+    | FollowUp
+    | Share
 
 
 type alias Interaction =
@@ -114,3 +122,4 @@ type Msg
     | PlayAudio Bool
     | ReRecord
     | UpdateTags String
+    | ChangeDetails DetailsState
