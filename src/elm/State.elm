@@ -72,12 +72,6 @@ getRoute hash =
         "#newRecommend" ->
             NewRecommendRoute
 
-        "#newShare" ->
-            NewShareRoute
-
-        "#newThankYou" ->
-            NewThankYouRoute
-
         "#previousOverview" ->
             PreviousInteractionsOverviewRoute
 

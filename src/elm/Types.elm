@@ -13,8 +13,6 @@ type Route
     | NewContactDetailsRoute
     | NewNotesRoute
     | NewRecommendRoute
-    | NewShareRoute --| with follow up date
-    | NewThankYouRoute
     | PreviousInteractionsOverviewRoute
     | PreviousInteractionsDetailRoute
     | NotFoundRoute
