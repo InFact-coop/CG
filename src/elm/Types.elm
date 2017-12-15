@@ -36,6 +36,7 @@ type alias Model =
     , shared3 : Bool
     , shared4 : Bool
     , shared5 : Bool
+    , dataProtect : Bool
     }
 
 
@@ -139,3 +140,4 @@ type Msg
     | Shared5
     | SetDatePickerF DatePicker.Msg
     | AddInteraction
+    | DataProtect
