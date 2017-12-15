@@ -22,12 +22,12 @@ newNotesPage model =
                 Audio ->
                     audioView model
     in
-    div [ class "blue center" ]
-        [ div [ class "bg-record vh-100" ]
-            [ titleBar True "What happened?"
-            , div [ class "vh-50 mb5" ] [ viewChoice ]
+        div [ class "w-60-ns center blue" ]
+            [ div [ class "bg-record vh-100" ]
+                [ titleBar True "What happened?"
+                , div [ class "vh-50 mb5" ] [ viewChoice ]
+                ]
             ]
-        ]
 
 
 chooseView : Model -> Html Msg
@@ -35,9 +35,9 @@ chooseView model =
     div []
         [ section [ class "center tc" ]
             [ div [ class "w-100" ] [ img [ class "vh-25 mt4 mb3 pa3 br-100", src "./assets/svg_icons/handshake_icn.svg" ] [] ]
-            , button [ onClick <| ChangeNotes Audio, class "tc ma2 link dim dib f4" ]
+            , button [ onClick <| ChangeNotes Audio, class "tc ma2 link dim dib f4 button-transparent" ]
                 [ img [ src "./assets/svg_icons/record.svg" ] [] ]
-            , button [ onClick <| ChangeNotes Text, class "tc ma2 link dim dib f4" ]
+            , button [ onClick <| ChangeNotes Text, class "tc ma2 link dim dib f4 button-transparent" ]
                 [ img [ src "./assets/svg_icons/memo.svg" ] [] ]
             ]
         , section [ class "pa4 flex justify-center" ]
@@ -69,17 +69,17 @@ audioView model =
                     , button [ onClick StopRecording, class buttonClass, disabled <| not model.isRecording ] [ img [ src "./assets/svg_icons/REC_BTN_stop.svg" ] [] ]
                     ]
     in
-    div []
-        [ div [ class "tc" ]
-            [ audio [ controls False, class "", id "audio", src audioSrc ] []
-            , img [ class "vh-25 mt4 mb3 pa3 br-100", classList [ ( "flash", model.isRecording ) ], src "./assets/svg_icons/RECORDING.svg" ] []
-            , audioHtml
+        div []
+            [ div [ class "tc" ]
+                [ audio [ controls False, class "", id "audio", src audioSrc ] []
+                , img [ class "vh-25 mt4 mb3 pa3 br-100", classList [ ( "flash", model.isRecording ) ], src "./assets/svg_icons/RECORDING.svg" ] []
+                , audioHtml
+                ]
+            , section [ class "pa4 flex justify-center" ]
+                [ button [ onClick <| ChangeNotes Choose, class "tc ma2 link dim dib f4" ]
+                    [ img [ src "./assets/svg_icons/back.svg" ] [] ]
+                ]
             ]
-        , section [ class "pa4 flex justify-center" ]
-            [ button [ onClick <| ChangeNotes Choose, class "tc ma2 link dim dib f4" ]
-                [ img [ src "./assets/svg_icons/back.svg" ] [] ]
-            ]
-        ]
 
 
 buttonClass =
