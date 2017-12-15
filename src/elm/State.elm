@@ -18,12 +18,12 @@ init =
             DatePicker.init
     in
     ( { route = HomeRoute
-      , currentInteraction = Interaction Nothing "" "" "" "" (Notes "" "") "" [] Nothing CurrentMemberNotSet
+      , currentInteraction = Interaction Nothing "" "" "" "" (Notes "" "") "" [] Nothing CurrentMemberNotSet ""
       , recordedInteractions = listRecordedInteractions
       , notesPage = Choose
       , isRecording = False
       , datePicker = datePicker
-      , liveInteraction = Interaction Nothing "" "" "" "" (Notes "" "") "" [] Nothing CurrentMemberNotSet
+      , liveInteraction = Interaction Nothing "" "" "" "" (Notes "" "") "" [] Nothing CurrentMemberNotSet ""
       , searchInput = ""
       , detailsPage = ChooseDeets
       , newRecommend = Recommendation "" ""
@@ -40,11 +40,11 @@ init =
 
 listRecordedInteractions : List Interaction
 listRecordedInteractions =
-    [ Interaction (makeDate "12/12/2017") "Alexa Vega" "PHS Limited" "alexavega@gmail.com" "+447598772611" (Notes "A grafitti artist from Stroud that is looking for work" "") "Artist" [ Recommendation "Lucy" "TBSA ltd", Recommendation "Rebe" "NHS" ] (makeDate "12/21/2017") CurrentMemberNotSet
-    , Interaction (makeDate "11/28/2017") "Daryl Sabara" "Cortez Ltd" "darylsabara@cortez.com" "+447532172611" (Notes "school teacher looking for a grafitti artist" "") "Fine Arts" [ Recommendation "Mavis" "Monzo", Recommendation "Ronan" "AirBnb" ] (makeDate "12/19/2017") CurrentMemberNotSet
-    , Interaction (makeDate "11/19/2017") "Antonio Banderas" "Cargo S.L." "banderas@cargo.com" "+447598772987" (Notes "school teacher looking for a grafitti artist" "") "Event" [ Recommendation "Max" "Uber Eats", Recommendation "Zooey" "Queen" ] (makeDate "12/01/2017") CurrentMemberNotSet
-    , Interaction (makeDate "11/12/2017") "Carla Gugino" "Organisation" "darylsabara@cortez.com" "+447532172611" (Notes "school teacher looking for a grafitti artist" "") "Community" [ Recommendation "Jen" "Tate Modern", Recommendation "Ellie" "Deliveroo" ] (makeDate "11/18/2017") CurrentMemberNotSet
-    , Interaction (makeDate "10/01/2017") "Antonio Banderas" "Cargo S.L." "banderas@cargo.com" "+447598772987" (Notes "school teacher looking for a grafitti artist" "") "New Media" [ Recommendation "Dan" "Olympics ltd", Recommendation "Ash" "British Council" ] (makeDate "10/29/2017") CurrentMemberNotSet
+    [ Interaction (makeDate "12/12/2017") "Alexa Vega" "PHS Limited" "alexavega@gmail.com" "+447598772611" (Notes "A grafitti artist from Stroud that is looking for work" "") "Artist" [ Recommendation "Lucy" "TBSA ltd", Recommendation "Rebe" "NHS" ] (makeDate "12/21/2017") CurrentMemberNotSet "Farmers Market"
+    , Interaction (makeDate "11/28/2017") "Daryl Sabara" "Cortez Ltd" "darylsabara@cortez.com" "+447532172611" (Notes "school teacher looking for a grafitti artist" "") "Fine Arts" [ Recommendation "Mavis" "Monzo", Recommendation "Ronan" "AirBnb" ] (makeDate "12/19/2017") CurrentMemberNotSet "Farmers Market"
+    , Interaction (makeDate "11/19/2017") "Antonio Banderas" "Cargo S.L." "banderas@cargo.com" "+447598772987" (Notes "school teacher looking for a grafitti artist" "") "Event" [ Recommendation "Max" "Uber Eats", Recommendation "Zooey" "Queen" ] (makeDate "12/01/2017") CurrentMemberNotSet "Farmers Market"
+    , Interaction (makeDate "11/12/2017") "Carla Gugino" "Organisation" "darylsabara@cortez.com" "+447532172611" (Notes "school teacher looking for a grafitti artist" "") "Community" [ Recommendation "Jen" "Tate Modern", Recommendation "Ellie" "Deliveroo" ] (makeDate "11/18/2017") CurrentMemberNotSet "Farmers Market"
+    , Interaction (makeDate "10/01/2017") "Antonio Banderas" "Cargo S.L." "banderas@cargo.com" "+447598772987" (Notes "school teacher looking for a grafitti artist" "") "New Media" [ Recommendation "Dan" "Olympics ltd", Recommendation "Ash" "British Council" ] (makeDate "10/29/2017") CurrentMemberNotSet "Farmers Market"
     ]
 
 
@@ -195,6 +195,16 @@ update msg model =
 
                 newInteraction =
                     { interaction | organisation = input }
+            in
+            ( { model | currentInteraction = newInteraction }, Cmd.none )
+
+        SetContactWhere input ->
+            let
+                interaction =
+                    model.currentInteraction
+
+                newInteraction =
+                    { interaction | event = input }
             in
             ( { model | currentInteraction = newInteraction }, Cmd.none )
 
@@ -357,7 +367,7 @@ update msg model =
                     Navigation.newUrl "#previousDetail"
 
                 resetInt =
-                    Interaction Nothing "" "" "" "" (Notes "" "") "" [] Nothing CurrentMemberNotSet
+                    Interaction Nothing "" "" "" "" (Notes "" "") "" [] Nothing CurrentMemberNotSet ""
 
                 updateList =
                     model.currentInteraction :: model.recordedInteractions

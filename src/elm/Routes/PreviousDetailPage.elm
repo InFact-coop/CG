@@ -56,7 +56,7 @@ previousDetailPage model =
             [ div [ class "bg-blue white pa0 ma0" ]
                 [ h3 [ class "center pt3 underline" ] [ text "Date:" ]
                 , p [ class "f5" ] [ text date ]
-                , p [ class "f5 ma0 pb3" ] [ text "at New Town Hall, GL8 9JDF" ]
+                , p [ class "f5 ma0 pb3" ] [ text <| "at " ++ model.liveInteraction.event ]
                 ]
             , div [ class "bg-moon-gray blue ma0" ]
                 [ h3 [ class "bold center pt3 mt0" ] [ text "Notes" ]

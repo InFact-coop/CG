@@ -64,6 +64,7 @@ type alias Interaction =
     , recommendations : List Recommendation
     , followUpDate : Maybe Date
     , currentMember : CurrentMemberOptions
+    , event : String
     }
 
 
@@ -116,6 +117,7 @@ type Msg
     | SetContactEmail String
     | SetContactPhone String
     | SetContactOrganisation String
+    | SetContactWhere String
     | GoBack
     | SetCurrentContact CurrentMemberOptions
     | ChangeNotes NoteState
