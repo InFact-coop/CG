@@ -32,6 +32,7 @@ init =
       , shared3 = False
       , shared4 = False
       , shared5 = False
+      , dataProtect = False
       }
     , Cmd.batch [ Task.perform ReceiveDate Date.now, Cmd.map SetDatePicker datePickerCmd ]
     )
@@ -357,3 +358,6 @@ update msg model =
                     model.currentInteraction :: model.recordedInteractions
             in
             ( { model | recordedInteractions = updateList, liveInteraction = model.currentInteraction, currentInteraction = resetInt }, command )
+
+        DataProtect ->
+            ( { model | dataProtect = not model.dataProtect }, Cmd.none )
