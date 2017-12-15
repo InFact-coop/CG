@@ -32,6 +32,7 @@ init =
       , shared3 = False
       , shared4 = False
       , shared5 = False
+      , dataProtect = False
       }
     , Cmd.batch [ Task.perform ReceiveDate Date.now, Cmd.map SetDatePicker datePickerCmd ]
     )
@@ -39,9 +40,9 @@ init =
 
 listRecordedInteractions : List Interaction
 listRecordedInteractions =
-    [ Interaction Nothing "Alexa Vega" "PHS Limited" "alexavega@gmail.com" "+447598772611" (Notes "A grafitti artist from Stroud that is looking for work" "") "Artist" [ Recommendation "Lucy" "TBSA ltd", Recommendation "Rebe" "NHS" ] Nothing CurrentMemberNotSet
-    , Interaction Nothing "Daryl Sabara" "Cortez Ltd" "darylsabara@cortez.com" "+447532172611" (Notes "school teacher looking for a grafitti artist" "") "Fine Arts" [ Recommendation "Mavis" "Monzo", Recommendation "Ronan" "AirBnb" ] Nothing CurrentMemberNotSet
-    , Interaction Nothing "Antonio Banderas" "Cargo S.L." "banderas@cargo.com" "+447598772987" (Notes "school teacher looking for a grafitti artist" "") "Event" [ Recommendation "Max" "Uber Eats", Recommendation "Zooey" "Queen" ] Nothing CurrentMemberNotSet
+    [ Interaction Nothing "Alexa Vega" "PHS Limited" "alexavega@gmail.com" "+447598772611" (Notes "A grafitti artist from Stroud that is looking for work" "") "Visual Arts" [ Recommendation "Lucy" "TBSA ltd", Recommendation "Rebe" "NHS" ] Nothing CurrentMemberNotSet
+    , Interaction Nothing "Daryl Sabara" "Cortez Ltd" "darylsabara@cortez.com" "+447532172611" (Notes "school teacher looking for a grafitti artist" "") "Education" [ Recommendation "Mavis" "Monzo", Recommendation "Ronan" "AirBnb" ] Nothing CurrentMemberNotSet
+    , Interaction Nothing "Antonio Banderas" "Cargo S.L." "banderas@cargo.com" "+447598772987" (Notes "school teacher looking for a grafitti artist" "") "Theatre" [ Recommendation "Max" "Uber Eats", Recommendation "Zooey" "Queen" ] Nothing CurrentMemberNotSet
     , Interaction Nothing "Carla Gugino" "Organisation" "darylsabara@cortez.com" "+447532172611" (Notes "school teacher looking for a grafitti artist" "") "Community" [ Recommendation "Jen" "Tate Modern", Recommendation "Ellie" "Deliveroo" ] Nothing CurrentMemberNotSet
     , Interaction Nothing "Antonio Banderas" "Cargo S.L." "banderas@cargo.com" "+447598772987" (Notes "school teacher looking for a grafitti artist" "") "New Media" [ Recommendation "Dan" "Olympics ltd", Recommendation "Ash" "British Council" ] Nothing CurrentMemberNotSet
     ]
@@ -357,3 +358,6 @@ update msg model =
                     model.currentInteraction :: model.recordedInteractions
             in
             ( { model | recordedInteractions = updateList, liveInteraction = model.currentInteraction, currentInteraction = resetInt }, command )
+
+        DataProtect ->
+            ( { model | dataProtect = not model.dataProtect }, Cmd.none )

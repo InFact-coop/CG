@@ -25,7 +25,16 @@ newNotesPage model =
     div [ class "w-60-ns center blue" ]
         [ div [ class "bg-record vh-100" ]
             [ titleBar True "What happened?"
-            , div [ class "vh-50 mb5" ] [ viewChoice ]
+            , div [ class "vh-50 mb3" ] [ viewChoice ]
+            , section [ class "pa2 w-100" ]
+                [ div [ class "w-100 flex justify-center" ]
+                    [ button [ onClick <| ChangeNotes Audio, class "button-transparent" ]
+                        [ img [ src "./assets/svg_icons/record.svg", class "br-100", classList [ ( "shadow-1", model.notesPage == Audio ) ] ] [] ]
+                    , button [ onClick <| ChangeNotes Text, class "button-transparent" ]
+                        [ img [ src "./assets/svg_icons/memo.svg", class "br-100", classList [ ( "shadow-1", model.notesPage == Text ) ] ] [] ]
+                    ]
+                , div [ class "w-100 flex items-center" ] [ a [ class "b-blue ba link blue tc ma0 mt2 pt2 center bg-white h3 b br3 f3 w-100", href "#newRecommend" ] [ text "Next" ] ]
+                ]
             ]
         ]
 
@@ -35,13 +44,6 @@ chooseView model =
     div []
         [ section [ class "center tc" ]
             [ div [ class "w-100" ] [ img [ class "vh-25 mt4 mb3 pa3 br-100", src "./assets/svg_icons/handshake_icn.svg" ] [] ]
-            , button [ onClick <| ChangeNotes Audio, class "tc ma2  dim dib f4 button-transparent" ]
-                [ img [ src "./assets/svg_icons/record.svg" ] [] ]
-            , button [ onClick <| ChangeNotes Text, class "tc ma2 button-transparent dim dib f4" ]
-                [ img [ src "./assets/svg_icons/memo.svg" ] [] ]
-            ]
-        , section [ class "pa4 flex justify-center" ]
-            [ a [ class "b-blue ba link blue tc ma0 mt2 pt2 center bg-white h3 w-100 b br3 f3", href "#newRecommend" ] [ text "Next" ]
             ]
         ]
 
@@ -75,10 +77,6 @@ audioView model =
             , img [ class "vh-25 mt4 mb3 pa3 br-100", classList [ ( "flash", model.isRecording ) ], src "./assets/svg_icons/RECORDING.svg" ] []
             , audioHtml
             ]
-        , section [ class "pa4 flex justify-center" ]
-            [ button [ onClick <| ChangeNotes Choose, class "tc ma2 link dim dib f4" ]
-                [ img [ src "./assets/svg_icons/back.svg" ] [] ]
-            ]
         ]
 
 
@@ -101,17 +99,13 @@ textView model =
                 []
             ]
         , div [ class "tc" ] [ selectCat model ]
-        , section [ class "pa4 flex justify-center" ]
-            [ button [ onClick <| ChangeNotes Choose, class "tc ma2 link dim dib f4" ]
-                [ img [ src "./assets/svg_icons/back.svg" ] [] ]
-            ]
         ]
 
 
 selectCat : Model -> Html Msg
 selectCat model =
     select [ onInput UpdateTags, class "ba b--black pa2 f4 w-75 mh2" ]
-        (List.map (catOption model) [ "Select Category", "Artist", "CGmember", "Event" ])
+        (List.map (catOption model) [ "Select Category", "Architecture", "Environment", "Health", "Community", "Craft", "Dance", "Design", "Education", "Film", "Heritage", "Literature", "Music", "New Media", "Theatre", "Visual Arts" ])
 
 
 catOption : Model -> String -> Html Msg

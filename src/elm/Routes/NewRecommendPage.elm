@@ -31,7 +31,13 @@ newRecommendPage model =
             [ titleBar True "Add some detail..."
             , chooseView
             , viewChoice
-            , section [ class "pa4 flex justify-center" ]
+            , div [ class "pt3" ]
+                [ button [ class "w-100 tc bn bg-white", onClick DataProtect ]
+                    [ p [ class "ma0 pa0 light-blue f4 dib lh-copy ph2 v-mid" ] [ text "Send data protection email" ]
+                    , div [ class "ma0 pa0 h1 w1 ba bw1 b--light-blue br1 dib v-mid", classList [ ( "bg-light-blue", model.dataProtect ) ] ] []
+                    ]
+                ]
+            , section [ class "ph4 pb4 flex justify-center" ]
                 [ a [ class "b-blue ba link blue tc ma0 mt2 pt2 center bg-white h3 w-100 b br3 f3", onClick AddInteraction ] [ text "Finished" ]
                 ]
             ]
