@@ -1,0 +1,32 @@
+<svg width="100" height="100" viewBox="0 0 100 100" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<title>Group 3</title>
+<desc>Created using Figma</desc>
+<g id="Canvas" transform="translate(-463 2460)">
+<g id="Group 3">
+<g id="Group 2">
+<g id="Group">
+<g id="see_conn">
+<g id="export">
+<g id="Artboard">
+<g id="Group">
+<g id="Oval 2">
+<use xlink:href="#path0_stroke" transform="translate(464 -2459)" fill="#497693"/>
+</g>
+</g>
+</g>
+</g>
+</g>
+</g>
+</g>
+<g id="iconmonstr-speech-bubble-12">
+<g id="Vector">
+<use xlink:href="#path1_fill" transform="translate(482.285 -2438.25)" fill="#497693"/>
+</g>
+</g>
+</g>
+</g>
+<defs>
+<path id="path0_stroke" d="M 97 49C 97 75.5097 75.5097 97 49 97L 49 99C 76.6142 99 99 76.6142 99 49L 97 49ZM 49 97C 22.4903 97 1 75.5097 1 49L -1 49C -1 76.6142 21.3858 99 49 99L 49 97ZM 1 49C 1 22.4903 22.4903 1 49 1L 49 -1C 21.3858 -1 -1 21.3858 -1 49L 1 49ZM 49 1C 75.5097 1 97 22.4903 97 49L 99 49C 99 21.3858 76.6142 -1 49 -1L 49 1Z"/>
+<path id="path1_fill" d="M 30.7149 5.11759C 44.8284 5.11759 56.3106 13.339 56.3106 23.4437C 56.3106 33.6789 48.55 42.4069 36.1591 47.2942L 37.2418 41.7186L 30.9862 41.7672C 16.4965 41.8312 5.11915 33.4844 5.11915 23.4437C 5.11915 13.339 16.6014 5.11759 30.7149 5.11759L 30.7149 5.11759ZM 30.7149 0C 13.7526 0 0 10.4962 0 23.4437C 0 36.8748 14.5486 47.0767 31.0246 46.8848C 30.0238 52.0408 23.9474 55.2649 19.3913 56.2935C 45.2661 54.0162 61.4298 39.6895 61.4298 23.4437C 61.4298 10.4962 47.6772 0 30.7149 0Z"/>
+</defs>
+</svg>

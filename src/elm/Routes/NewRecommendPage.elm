@@ -40,20 +40,20 @@ newRecommendPage model =
 
 chooseView : Html Types.Msg
 chooseView =
-    section [ class "center ma0 pt3" ]
-        [ div [ class "w-100 tc" ] [ buttonMaker "./assets/svg_icons/see_conn.svg" "Recommendations I made" Recommendations ]
-        , div [ class "w-100 tc" ]
-            [ buttonMaker "./assets/svg_icons/add_new.svg" "Set a follow up date" FollowUp
-            , buttonMaker "./assets/svg_icons/calendar.svg" "Tell a CG team member about this" Share
+    section [ class "center ma0 pt3 vh-50 mb4" ]
+        [ div [ class "w-100 tc mt2" ] [ buttonMaker "./assets/svg_icons/recommend.svg" "Recommendations I made" Recommendations ]
+        , div [ class "w-100 mt3 tc" ]
+            [ buttonMaker "./assets/svg_icons/calendar.svg" "Set a follow up date" FollowUp
+            , buttonMaker "./assets/svg_icons/tell.svg" "Tell a CG team member" Share
             ]
         ]
 
 
 buttonMaker : String -> String -> DetailsState -> Html Types.Msg
 buttonMaker imgSrc message newView =
-    button [ class "link ma3", onClick <| ChangeDetails newView ]
+    button [ class "link button-transparent mh2 mb2", onClick <| ChangeDetails newView ]
         [ img [ src imgSrc ] []
-        , p [] [ text message ]
+        , p [ class "b blue" ] [ text message ]
         ]
 
 
@@ -107,8 +107,8 @@ buttonItem : Bool -> Types.Msg -> String -> Html Types.Msg
 buttonItem state msg textValue =
     div [ class "pa2" ]
         [ button [ class "w-50 tr bn bg-white", onClick msg ]
-            [ p [ class "ma0 pa0 light-blue f4 dib lh-copy ph2 v-mid" ] [ text textValue ]
-            , div [ class "ma0 pa0 h2 w2 ba bw1 b--light-blue br1 dib v-mid", classList [ ( "bg-light-blue", state ) ] ] []
+            [ p [ class "ma0 pa0 light-blue f5 dib lh-copy ph2 v-mid" ] [ text textValue ]
+            , div [ class "ma0 pa0 h1 w1 ba bw1 b--light-blue br1 dib v-mid", classList [ ( "bg-light-blue", state ) ] ] []
             ]
         ]
 
