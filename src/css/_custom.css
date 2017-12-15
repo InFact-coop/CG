@@ -18,9 +18,8 @@ button {
 }
 
 .elm-datepicker--input {
-  text-align: center;
   color: var(--blue);
-  font-size: 2rem;
+  font-size: 1.25rem;
 }
 
 .elm-datepicker--input:focus {
@@ -241,4 +240,8 @@ button {
 .button-transparent {
   background-color: transparent;
   border: none;
+}
+
+.form-item__input::placeholder {
+  color: var(--light-blue);
 }

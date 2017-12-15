@@ -16,8 +16,9 @@ newContactDetailsPage model =
         , formItem "assets/svg_icons/email.svg" "Email" model.currentInteraction.email SetContactEmail
         , formItem "assets/svg_icons/phone.svg" "Phone" model.currentInteraction.phone SetContactPhone
         , formItem "assets/svg_icons/company.svg" "Organisation" model.currentInteraction.organisation SetContactOrganisation
-        , div [ class "" ]
-            [ div [ class "tc" ]
+        , div [ class "bb b--blue bw1 w-80 center flex items-center pb2 mb2" ]
+            [ img [ src "assets/svg_icons/cal.svg", class "w2" ] []
+            , div [ class "" ]
                 [ DatePicker.view
                     model.currentInteraction.interactionDate
                     DatePicker.defaultSettings
@@ -40,9 +41,8 @@ formItem imgSrc fieldName val msg =
     div []
         [ div [ class "bb b--blue bw1 w-80 center flex items-center pb2 mb2" ]
             [ img [ src imgSrc, class "h2 w2" ] []
-            , label [ class "dib tr lh-copy light-blue f4 mh3" ] [ text fieldName ]
             , input
-                [ class " dib f4 blue bn", onInput msg, value val ]
+                [ class "form-item__input ml2 dib f4 blue bn", onInput msg, value val, placeholder fieldName ]
                 []
             ]
         ]
