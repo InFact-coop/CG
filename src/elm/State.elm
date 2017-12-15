@@ -17,7 +17,7 @@ init =
         ( datePicker, datePickerCmd ) =
             DatePicker.init
     in
-    ( { route = NewRecommendRoute
+    ( { route = HomeRoute
       , currentInteraction = Interaction Nothing "" "" "" "" (Notes "" "") "" [] Nothing CurrentMemberNotSet
       , recordedInteractions = listRecordedInteractions
       , notesPage = Choose
