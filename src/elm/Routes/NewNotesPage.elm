@@ -22,7 +22,7 @@ newNotesPage model =
                 Audio ->
                     audioView model
     in
-    div [ class "blue center" ]
+    div [ class "w-60-ns center blue" ]
         [ div [ class "bg-record vh-100" ]
             [ titleBar True "What happened?"
             , div [ class "vh-50 mb5" ] [ viewChoice ]

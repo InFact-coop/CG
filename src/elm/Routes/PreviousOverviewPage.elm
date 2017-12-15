@@ -14,7 +14,7 @@ previousOverviewPage model =
         , p [ class "blue center db tc" ] [ text "Search by name, tags or organisation" ]
         , input [ class "center db b-input pa2 ma2 w8", onInput SetSearchInput, value model.searchInput, placeholder "search" ] []
         , section
-            [ class "center absolute imageInteractionItem  bt bw1 b--light-blue br0 w-100" ]
+            [ class "center absolute imageInteractionItem  bt bw1 b--light-blue br0 w-60-ns" ]
             (interactionContent
                 model
             )
@@ -23,7 +23,7 @@ previousOverviewPage model =
 
 interactionItem : Interaction -> Html Msg
 interactionItem interaction =
-    button [ class "w-100 interactionItem button-border overflow-hidden", onClick <| SelectInteractionItem interaction ]
+    button [ class "w-100 interactionItem button-border", onClick <| SelectInteractionItem interaction ]
         [ li [ class "db b--blue-10" ]
             [ div [ class "flex justify-end" ]
                 [ p [ class "bg-blue w3 h1 br3 white mr3 mb0" ] [ text interaction.tags ] ]
