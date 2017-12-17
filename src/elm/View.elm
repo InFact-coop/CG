@@ -8,8 +8,6 @@ import Routes.Home exposing (..)
 import Routes.NewContactDetailsPage exposing (..)
 import Routes.NewNotesPage exposing (..)
 import Routes.NewRecommendPage exposing (..)
-import Routes.NewSharePage exposing (..)
-import Routes.NewThankYouPage exposing (..)
 import Routes.NotFoundPage exposing (..)
 import Routes.PreviousDetailPage exposing (..)
 import Routes.PreviousOverviewPage exposing (..)
@@ -33,12 +31,6 @@ view model =
                 NewRecommendRoute ->
                     newRecommendPage model
 
-                NewShareRoute ->
-                    newSharePage model
-
-                NewThankYouRoute ->
-                    newThankYouPage model
-
                 PreviousInteractionsOverviewRoute ->
                     previousOverviewPage model
 
@@ -48,5 +40,5 @@ view model =
                 NotFoundRoute ->
                     notFoundPage model
     in
-        div []
-            [ page ]
+    div []
+        [ page ]

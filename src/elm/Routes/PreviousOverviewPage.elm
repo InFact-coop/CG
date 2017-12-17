@@ -1,10 +1,11 @@
 module Routes.PreviousOverviewPage exposing (..)
 
+import Components.TitleBar exposing (..)
+import Date.Format exposing (..)
 import Html exposing (..)
 import Html.Attributes exposing (..)
 import Html.Events exposing (..)
 import Types exposing (..)
-import Components.TitleBar exposing (..)
 
 
 previousOverviewPage : Model -> Html Msg
@@ -23,10 +24,21 @@ previousOverviewPage model =
 
 interactionItem : Interaction -> Html Msg
 interactionItem interaction =
+    let
+        date =
+            case interaction.interactionDate of
+                Just d ->
+                    Date.Format.format "%d/%m/%Y" d
+
+                _ ->
+                    "No date given"
+    in
     button [ class "w-100 interactionItem button-border", onClick <| SelectInteractionItem interaction ]
         [ li [ class "db b--blue-10" ]
-            [ div [ class "flex justify-end" ]
-                [ p [ class "bg-blue w3 h1 br3 white mr3 mb0" ] [ text interaction.tags ] ]
+            [ div [ class "flex justify-between" ]
+                [ p [ class "bg-blue ph2 h1 br3 white mr3 mb0" ] [ text date ]
+                , p [ class "bg-blue ph2 h1 br3 white mr3 mb0" ] [ text interaction.tags ]
+                ]
             , h1 [ class "f4 b blue f3 mt0" ] [ text interaction.organisation ]
             , p [ class "ma1 b blue f4" ] [ text interaction.name ]
             , div [ class "b blue" ] [ text interaction.notes.text ]

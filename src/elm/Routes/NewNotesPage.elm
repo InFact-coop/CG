@@ -81,7 +81,7 @@ audioView model =
 
 
 buttonClass =
-    "dim b pointer w7 h3 f4 ma2"
+    "dim b pointer w7 h3 f4 ma2 button-transparent"
 
 
 textView : Model -> Html Msg

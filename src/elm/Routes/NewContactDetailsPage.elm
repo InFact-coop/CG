@@ -16,6 +16,7 @@ newContactDetailsPage model =
         , formItem "assets/svg_icons/email.svg" "Email" model.currentInteraction.email SetContactEmail
         , formItem "assets/svg_icons/phone.svg" "Phone" model.currentInteraction.phone SetContactPhone
         , formItem "assets/svg_icons/company.svg" "Organisation" model.currentInteraction.organisation SetContactOrganisation
+        , formItem "assets/svg_icons/handshake_icn.svg" "Where did you meet" model.currentInteraction.event SetContactWhere
         , div [ class "bb b--blue bw1 w-80 center flex items-center pb2 mb2" ]
             [ img [ src "assets/svg_icons/cal.svg", class "w2" ] []
             , div [ class "" ]

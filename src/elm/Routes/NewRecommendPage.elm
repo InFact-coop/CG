@@ -67,7 +67,7 @@ viewMaker : Html Types.Msg -> Html Types.Msg
 viewMaker filler =
     div [ class "fixed bottom-0 left-0 vh-100 w-100 pt5" ]
         [ div [ class "ba b--blue bw2 br3 bg-white z-999 w-90 vh-75 pa0 ma0 center mt5 grows transition-none " ]
-            [ button [ class "link ma2 relative top-0 left-0", onClick <| ChangeDetails ChooseDeets ]
+            [ button [ class "button-transparent link ma2 relative top-0 left-0", onClick <| ChangeDetails ChooseDeets ]
                 [ img [ src "./assets/svg_icons/remove.svg" ] []
                 ]
             , filler
